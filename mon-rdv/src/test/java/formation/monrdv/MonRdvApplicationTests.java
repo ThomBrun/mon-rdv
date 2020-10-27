@@ -9,12 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import formation.monrdv.model.Administrateur;
 import formation.monrdv.model.Creneau;
-import formation.monrdv.model.Lieu;
 import formation.monrdv.model.Motif;
 import formation.monrdv.model.Patient;
-import formation.monrdv.model.Praticien;
 import formation.monrdv.model.Rdv;
-import formation.monrdv.model.Specialite;
 import formation.monrdv.model.Utilisateur;
 import formation.monrdv.repository.IAdministrateurRepository;
 import formation.monrdv.repository.ICreneauRepository;
@@ -48,6 +45,10 @@ class MonRdvApplicationTests {
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo;
 	
+	@Test
+	void contextLoads() throws ParseException {
+		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 	
 	
 	@Test
@@ -137,13 +138,52 @@ class MonRdvApplicationTests {
 			
 
 			
+//			Praticien praticien = new Praticien();
+//			praticienRepo.save(praticien);
+//			
+//			Lieu lieu = new Lieu();
+//			lieuRepo.save(lieu);
+//			
+//			Patient patient = new Patient();
+//			patientRepo.save(patient);
+//
+//			Specialite specialite = new Specialite();
+//			specialiteRepo.save(specialite);
+//
+//
+			Administrateur admin1 = new Administrateur();
+			Administrateur admin2 = new Administrateur();
+			admin1.setEmail("admin1@gmail.com");
+			admin2.setEmail("admin2@hotmail.fr");
+			admin1.setIdentifiant("admin1");
+			admin2.setIdentifiant("admin2");
+			admin1.setMotDePasse("admin1mdp");
+			admin2.setMotDePasse("admin2mdp");
+			adminRepo.save(admin1);
+			adminRepo.save(admin2);
 			
-			
-
-			
+			Patient patient1 = new Patient("Truc", "Jean-Pierre", sdf1.parse("14/11/1999"), 37, "rue1", 33700, "Mérignac");
+			Patient patient2 = new Patient("Machin", "Bob", sdf1.parse("14/11/1999"), 18, "rue2", 33000, "Bordeaux");
+			patient1.setEmail("truc@gmail.com");
+			patient2.setEmail("bob@hotmail.fr");
+			patient1.setIdentifiant("JPTruc");
+			patient2.setIdentifiant("Bobbb");
+			patient1.setMotDePasse("123456789");
+			patient2.setMotDePasse("9876544321");
+			patientRepo.save(patient1);
+			patientRepo.save(patient2);
 			Patient patient = new Patient();
 			patientRepo.save(patient);
+			
 
+			
+
+			Rdv rdv1 = new Rdv();
+			Rdv rdv2 = new Rdv();
+			rdv1.setPatient(patient1);
+			rdv2.setPatient(patient2);
+			rdvRepo.save(rdv1);
+			rdvRepo.save(rdv2);
 			Motif motif = new Motif();
 			motifRepo.save(motif);
 
@@ -155,8 +195,16 @@ class MonRdvApplicationTests {
 			
 
 			
-			//rdv.getCreneaux().add(creneau1); // ignoré par hibernate, maître = creneau, esclave = rdv
+			Motif motifpat1 = new Motif("consultation", 20);
+			Motif motifpat2 = new Motif("Carrie", 30);
+			motifRepo.save(motifpat1);
+			motifRepo.save(motifpat2);
 			
+			rdv1.setMotif(motifpat1);
+			rdv2.setMotif(motifpat2);
+			rdvRepo.save(rdv1);
+			rdvRepo.save(rdv2);
+
 	}
 
 }

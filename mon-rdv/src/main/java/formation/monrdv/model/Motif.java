@@ -37,13 +37,10 @@ public class Motif {
 		super();
 	}
 
-	public Motif(String nom, int duree, List<Rdv> rdvs, Praticien praticien, List<Lieu> lieux) {
+	public Motif(String nom, int duree) {
 		super();
 		this.nom = nom;
 		this.duree = duree;
-		Rdvs = rdvs;
-		this.praticien = praticien;
-		this.lieux = lieux;
 	}
 
 	public Long getId() {

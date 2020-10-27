@@ -13,13 +13,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Patient extends Utilisateur {
+	private String nom;
+	private String prenom;
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dtNaissance;
-	private String nom;
-	private String prenom;
-	private String rue;
 	private int numero;
+	private String rue;
 	private int codePostal;
 	private String ville;
 	
@@ -29,9 +29,9 @@ public class Patient extends Utilisateur {
 	public Patient() {
 		super();
 	}
-
-	public Patient(Date dtNaissance, String nom, String prenom, String rue, int numero,
-			int codePostal, String ville, List<Rdv> rdvs) {
+	
+	public Patient(String nom, String prenom, Date dtNaissance, int numero, String rue,
+			int codePostal, String ville) {
 		super();
 		this.dtNaissance = dtNaissance;
 		this.nom = nom;
@@ -40,9 +40,7 @@ public class Patient extends Utilisateur {
 		this.numero = numero;
 		this.codePostal = codePostal;
 		this.ville = ville;
-		this.rdvs = rdvs;
 	}
-
 
 	public Date getDtNaissance() {
 		return dtNaissance;
