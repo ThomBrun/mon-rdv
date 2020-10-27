@@ -3,12 +3,9 @@ package formation.model;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Lieu {
-	
 	private Long id;
 	private int version;
-	
 	private String nom;
 	private String rue;
 	private String ville;
@@ -16,21 +13,16 @@ public class Lieu {
 	private int numero;
 	
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
-	
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
-
 	private List<Motif> motifs = new ArrayList<Motif>();
 	
 	public Lieu() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Lieu(Long id, int version, String nom, String rue, String ville, int codePostal, int numero,
-			List<Creneau> creneaux, List<Praticien> praticiens, List<Motif> motifs) {
+	public Lieu(String nom, String rue, String ville, int codePostal, int numero, List<Creneau> creneaux,
+			List<Praticien> praticiens, List<Motif> motifs) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.nom = nom;
 		this.rue = rue;
 		this.ville = ville;
@@ -127,6 +119,4 @@ public class Lieu {
 				+ ", codePostal=" + codePostal + ", numero=" + numero + ", creneaux=" + creneaux + ", praticiens="
 				+ praticiens + ", motifs=" + motifs + "]";
 	}
-	
-	
 }

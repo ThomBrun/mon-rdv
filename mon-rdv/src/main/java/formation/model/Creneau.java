@@ -3,16 +3,12 @@ package formation.model;
 import java.util.Date;
 
 public class Creneau {
-	
 	private Long id;
 	private int version;
-	
 	private Date date;
 	
 	private Rdv rdv = new Rdv();
-	
 	private Praticien praticien = new Praticien();
-	
 	private Lieu lieu = new Lieu();
 	
 	public Creneau() {
@@ -20,10 +16,8 @@ public class Creneau {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Creneau(Long id, int version, Date date, Rdv rdv, Praticien praticien, Lieu lieu) {
+	public Creneau(Date date, Rdv rdv, Praticien praticien, Lieu lieu) {
 		super();
-		this.id = id;
-		this.version = version;
 		this.date = date;
 		this.rdv = rdv;
 		this.praticien = praticien;

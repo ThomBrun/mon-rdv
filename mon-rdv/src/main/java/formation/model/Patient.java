@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Patient extends Utilisateur{
-	private Long id;
-	private int version;
+public class Patient extends Utilisateur {
 	private Date dtNaissance;
 	private String nom;
 	private String prenom;
@@ -14,14 +12,15 @@ public class Patient extends Utilisateur{
 	private int numero;
 	private int codePostal;
 	private String ville;
+	
 	private List<Rdv> rdvs = new ArrayList<Rdv>();
 
 	public Patient() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Patient(Date dtNaissance, String nom, String prenom, String rue, int numero, int codePostal, String ville, List<Rdv> rdvs) {
+	public Patient(Date dtNaissance, String nom, String prenom, String rue, int numero,
+			int codePostal, String ville, List<Rdv> rdvs) {
 		super();
 		this.dtNaissance = dtNaissance;
 		this.nom = nom;
@@ -33,21 +32,6 @@ public class Patient extends Utilisateur{
 		this.rdvs = rdvs;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
 
 	public Date getDtNaissance() {
 		return dtNaissance;
@@ -115,9 +99,8 @@ public class Patient extends Utilisateur{
 
 	@Override
 	public String toString() {
-		return "Patient [id=" + id + ", version=" + version + ", dtNaissance=" + dtNaissance + ", nom=" + nom
+		return "Patient [dtNaissance=" + dtNaissance + ", nom=" + nom
 				+ ", prenom=" + prenom + ", rue=" + rue + ", numero=" + numero + ", codePostal=" + codePostal
 				+ ", ville=" + ville + ", rdvs=" + rdvs + "]";
 	}
-
 }

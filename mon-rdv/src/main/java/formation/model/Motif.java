@@ -8,13 +8,13 @@ public class Motif {
 	private int version;
 	private String nom;
 	private int duree;
-	private List<Rdv> Rdvs = new ArrayList<Rdv>();
+	
+	private List<Rdv>Rdvs = new ArrayList<Rdv>();
 	private Praticien praticien;
-	private List<Lieu> lieux = new ArrayList<Lieu>();
-
+	private List<Lieu>lieux = new ArrayList<Lieu>();
+	
 	public Motif() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Motif(String nom, int duree, List<Rdv> rdvs, Praticien praticien, List<Lieu> lieux) {
