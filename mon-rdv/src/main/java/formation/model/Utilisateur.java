@@ -18,7 +18,6 @@ public abstract class Utilisateur{
 		this.identifiant = identifiant;
 		this.motDePasse = motDePasse;
 		this.email = email;
-
 	}
 
 	public Long getId() {
