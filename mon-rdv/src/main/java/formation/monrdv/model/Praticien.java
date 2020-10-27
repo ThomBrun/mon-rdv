@@ -1,8 +1,11 @@
-package formation.model;
+package formation.monrdv.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+
+//@Entity
 public class Praticien extends Utilisateur {
 	private String nom;
 	private String prenom;

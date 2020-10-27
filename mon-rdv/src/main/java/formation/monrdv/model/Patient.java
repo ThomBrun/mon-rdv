@@ -1,10 +1,20 @@
-package formation.model;
+package formation.monrdv.model;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+//@Entity
 public class Patient extends Utilisateur {
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dtNaissance;
 	private String nom;
 	private String prenom;
@@ -13,6 +23,7 @@ public class Patient extends Utilisateur {
 	private int codePostal;
 	private String ville;
 	
+	@OneToMany(mappedBy = "patient")
 	private List<Rdv> rdvs = new ArrayList<Rdv>();
 
 	public Patient() {
