@@ -2,6 +2,8 @@ package formation.monrdv;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +11,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import formation.monrdv.model.Administrateur;
 import formation.monrdv.model.Creneau;
+import formation.monrdv.model.Lieu;
 import formation.monrdv.model.Motif;
 import formation.monrdv.model.Patient;
+import formation.monrdv.model.Praticien;
 import formation.monrdv.model.Rdv;
+import formation.monrdv.model.Specialite;
 import formation.monrdv.model.Utilisateur;
 import formation.monrdv.repository.IAdministrateurRepository;
 import formation.monrdv.repository.ICreneauRepository;
@@ -45,11 +50,7 @@ class MonRdvApplicationTests {
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo;
 	
-	@Test
-	void contextLoads() throws ParseException {
-		
-		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-	
+
 	
 	@Test
 	void contextLoads() throws ParseException {
@@ -150,7 +151,9 @@ class MonRdvApplicationTests {
 //			Specialite specialite = new Specialite();
 //			specialiteRepo.save(specialite);
 //
-//
+//			
+			SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+
 			Administrateur admin1 = new Administrateur();
 			Administrateur admin2 = new Administrateur();
 			admin1.setEmail("admin1@gmail.com");
@@ -193,8 +196,6 @@ class MonRdvApplicationTests {
 			Rdv rdv = new Rdv();
 			rdvRepo.save(rdv);
 			
-
-			
 			Motif motifpat1 = new Motif("consultation", 20);
 			Motif motifpat2 = new Motif("Carrie", 30);
 			motifRepo.save(motifpat1);
@@ -204,6 +205,60 @@ class MonRdvApplicationTests {
 			rdv2.setMotif(motifpat2);
 			rdvRepo.save(rdv1);
 			rdvRepo.save(rdv2);
+			
+			creneau1.setRdv(rdv1);
+			creneau2.setRdv(rdv1);
+			
+			creneau10.setRdv(rdv2);
+			creneau11.setRdv(rdv2);
+			
+			creneau1.setLieu(lieu1);
+			creneau2.setLieu(lieu1);
+
+			creneau10.setLieu(lieu2);
+			creneau11.setLieu(lieu2);
+			
+			creneau1.setPraticien(praticien1);
+			creneau2.setPraticien(praticien1);
+
+			creneau10.setPraticien(praticien2);
+			creneau11.setPraticien(praticien2);
+			
+			creneauRepo.save(creneau1);
+			creneauRepo.save(creneau2);
+			creneauRepo.save(creneau10);
+			creneauRepo.save(creneau11);
+			
+			praticien1.getSpecialites().add(specialite1);
+			praticien1.getMotifs().add(motifpat1);
+			
+			praticien2.getSpecialites().add(specialite3);
+			praticien2.getMotifs().add(motifpat2);
+			
+			praticien1.getLieux().add(lieu1);
+			praticien1.getLieux().add(lieu2);
+			praticien1.getLieux().add(lieu3);
+			praticienRepo.save(praticien1);
+
+			praticien2.getLieux().add(lieu2);
+			praticien2.getLieux().add(lieu4);
+			praticienRepo.save(praticien2);
+
+			motifpat1.getLieux().add(lieu1);
+			motifpat1.getLieux().add(lieu3);
+			motifRepo.save(motifpat1);
+			
+			motifpat2.getLieux().add(lieu1);
+			motifpat2.getLieux().add(lieu2);
+			motifRepo.save(motifpat2);
+
+
+
+			
+			
+
+
+
 
 	}
 
