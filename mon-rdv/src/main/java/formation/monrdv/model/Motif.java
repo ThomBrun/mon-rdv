@@ -6,12 +6,14 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
-//@Entity
+@Entity
 public class Motif {
 	@Id
 	@GeneratedValue
@@ -24,8 +26,10 @@ public class Motif {
 	@OneToMany(mappedBy = "motif")
 	private List<Rdv>Rdvs = new ArrayList<Rdv>();
 	@ManyToOne
+	@JoinColumn(name="praticien_id")
 	private Praticien praticien;
 	@ManyToMany
+	@JoinColumn(name="lieu_id")
 	private List<Lieu>lieux = new ArrayList<Lieu>();
 	
 	public Motif() {

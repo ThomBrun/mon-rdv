@@ -10,7 +10,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
-//@Entity
+@Entity
 public class Lieu {
 	@Id
 	@GeneratedValue

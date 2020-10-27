@@ -22,11 +22,11 @@ public class Creneau {
 	@ManyToOne
 	@JoinColumn(name="rdv_id")
 	private Rdv rdv;
-//	@ManyToOne
-	@Transient
+	@ManyToOne
+	@JoinColumn(name="praticien_id")
 	private Praticien praticien;
-//	@ManyToOne
-	@Transient
+	@ManyToOne
+	@JoinColumn(name="lieu_id")
 	private Lieu lieu;
 	
 	public Creneau() {

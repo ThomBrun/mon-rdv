@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 import javax.persistence.Version;
@@ -18,11 +20,13 @@ public class Rdv {
 	@Version
 	private int version;
 	
-	@Transient
+	@ManyToOne
+	@JoinColumn(name = "patient_id")
 	private Patient patient;
 	@OneToMany(mappedBy = "rdv")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
-	@Transient
+	@ManyToOne
+	@JoinColumn(name = "motif_id")
 	private Motif motif;
 	
 	public Rdv() {

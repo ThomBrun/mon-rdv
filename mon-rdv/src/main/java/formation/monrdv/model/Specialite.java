@@ -6,9 +6,11 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
-//@Entity
+@Entity
 public class Specialite {
 	@Id
 	@GeneratedValue
@@ -17,6 +19,7 @@ public class Specialite {
 	private int version;
 	private String nom;
 	
+	@ManyToMany(mappedBy = "specialite")
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
 	
 	public Specialite() {
