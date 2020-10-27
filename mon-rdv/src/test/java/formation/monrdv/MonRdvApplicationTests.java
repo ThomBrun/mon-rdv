@@ -9,10 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import formation.monrdv.model.Administrateur;
 import formation.monrdv.model.Creneau;
+import formation.monrdv.model.Lieu;
 import formation.monrdv.model.Motif;
 import formation.monrdv.model.Patient;
+import formation.monrdv.model.Praticien;
 import formation.monrdv.model.Rdv;
-import formation.monrdv.model.Utilisateur;
+import formation.monrdv.model.Specialite;
 import formation.monrdv.repository.IAdministrateurRepository;
 import formation.monrdv.repository.ICreneauRepository;
 import formation.monrdv.repository.ILieuRepository;
@@ -44,15 +46,11 @@ class MonRdvApplicationTests {
 	private ISpecialiteRepository specialiteRepo;
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo;
-	
+		
 	@Test
 	void contextLoads() throws ParseException {
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-	
-	
-	@Test
-	void contextLoads() throws ParseException {
 		
 			Lieu lieu1 = new Lieu("Clinique de l'abbaye", "chemin de traverse", "Pessac", 33600, 5, null, null, null);
 			lieuRepo.save(lieu1);
@@ -135,22 +133,8 @@ class MonRdvApplicationTests {
 			
 			Praticien praticien3 = new Praticien("Laura", "Durand", 15, null, null, null, null);
 			praticienRepo.save(praticien3);
-			
 
 			
-//			Praticien praticien = new Praticien();
-//			praticienRepo.save(praticien);
-//			
-//			Lieu lieu = new Lieu();
-//			lieuRepo.save(lieu);
-//			
-//			Patient patient = new Patient();
-//			patientRepo.save(patient);
-//
-//			Specialite specialite = new Specialite();
-//			specialiteRepo.save(specialite);
-//
-//
 			Administrateur admin1 = new Administrateur();
 			Administrateur admin2 = new Administrateur();
 			admin1.setEmail("admin1@gmail.com");
@@ -174,9 +158,6 @@ class MonRdvApplicationTests {
 			patientRepo.save(patient2);
 			Patient patient = new Patient();
 			patientRepo.save(patient);
-			
-
-			
 
 			Rdv rdv1 = new Rdv();
 			Rdv rdv2 = new Rdv();
@@ -193,8 +174,6 @@ class MonRdvApplicationTests {
 			Rdv rdv = new Rdv();
 			rdvRepo.save(rdv);
 			
-
-			
 			Motif motifpat1 = new Motif("consultation", 20);
 			Motif motifpat2 = new Motif("Carrie", 30);
 			motifRepo.save(motifpat1);
@@ -205,6 +184,10 @@ class MonRdvApplicationTests {
 			rdvRepo.save(rdv1);
 			rdvRepo.save(rdv2);
 
+			motifpat1.getLieux().add(lieu1);
+			motifpat1.getLieux().add(lieu2);
+			motifRepo.save(motifpat1);
+			
 	}
 
 }
