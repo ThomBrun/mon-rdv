@@ -4,10 +4,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import formation.monrdv.model.Administrateur;
 import formation.monrdv.model.Creneau;
 import formation.monrdv.model.Lieu;
+import formation.monrdv.model.Motif;
+import formation.monrdv.model.Patient;
 import formation.monrdv.model.Praticien;
 import formation.monrdv.model.Rdv;
+import formation.monrdv.model.Specialite;
+import formation.monrdv.model.Utilisateur;
 import formation.monrdv.repository.IAdministrateurRepository;
 import formation.monrdv.repository.ICreneauRepository;
 import formation.monrdv.repository.ILieuRepository;
@@ -40,34 +45,14 @@ class MonRdvApplicationTests {
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo;
 	
-	/*@Autowired
-	private IPraticienRepository praticienRepo;
 	
-	@Autowired
-	private ILieuRepository lieuRepo;
-	
-	@Autowired
-	private IPatientRepository patientRepo;
-
-	@Autowired
-	private ISpecialiteRepository specialiteRepo;
-
-	@Autowired
-	private IUtilisateurRepository utilisateurRepo;
-
-	@Autowired
-	private IMotifRepository motifRepo;
-
-	@Autowired
-	private IAdministrateurRepository administrateurRepo;*/
-
 	
 	@Test
 	void contextLoads() {
 			Rdv rdv = new Rdv();
 			rdvRepo.save(rdv);
 			
-			/*Praticien praticien = new Praticien();
+			Praticien praticien = new Praticien();
 			praticienRepo.save(praticien);
 			
 			Lieu lieu = new Lieu();
@@ -79,15 +64,12 @@ class MonRdvApplicationTests {
 			Specialite specialite = new Specialite();
 			specialiteRepo.save(specialite);
 
-			Utilisateur utilisateur = new utilisateur();
-			utilisateurRepo.save(utilisateur);
-
 			Motif motif = new Motif();
 			motifRepo.save(motif);
 
 			Administrateur administrateur = new Administrateur();			
-			administrateurRepo.save(administrateur);
-			*/
+			adminRepo.save(administrateur);
+			
 
 			Creneau creneau1 = new Creneau();
 			

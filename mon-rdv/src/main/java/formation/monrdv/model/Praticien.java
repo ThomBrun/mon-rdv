@@ -19,12 +19,14 @@ public class Praticien extends Utilisateur {
 	@JoinTable(name="praticien_specialite", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="specialite_id", referencedColumnName = "id"))
 	private List<Specialite> specialites = new ArrayList<Specialite>();
+	
 	@OneToMany(mappedBy = "praticien")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 	@ManyToMany
 	@JoinTable(name="praticien_lieu", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="lieu_id", referencedColumnName = "id"))
 	private List<Lieu> lieux = new ArrayList<Lieu>();
+	
 	@OneToMany(mappedBy = "praticien")
 	private List<Motif> motifs = new ArrayList<Motif>();
 	
