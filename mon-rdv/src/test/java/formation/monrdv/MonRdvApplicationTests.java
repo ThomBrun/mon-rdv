@@ -8,19 +8,37 @@ import formation.monrdv.model.Creneau;
 import formation.monrdv.model.Lieu;
 import formation.monrdv.model.Praticien;
 import formation.monrdv.model.Rdv;
+import formation.monrdv.repository.IAdministrateurRepository;
 import formation.monrdv.repository.ICreneauRepository;
 import formation.monrdv.repository.ILieuRepository;
+import formation.monrdv.repository.IMotifRepository;
+import formation.monrdv.repository.IPatientRepository;
 import formation.monrdv.repository.IPraticienRepository;
 import formation.monrdv.repository.IRdvRepository;
+import formation.monrdv.repository.ISpecialiteRepository;
+import formation.monrdv.repository.IUtilisateurRepository;
 
 @SpringBootTest
 class MonRdvApplicationTests {
 
 	@Autowired
+	private IAdministrateurRepository adminRepo;
+	@Autowired
 	private ICreneauRepository creneauRepo;
-	
+	@Autowired
+	private ILieuRepository lieuRepo;
+	@Autowired
+	private IMotifRepository motifRepo;
+	@Autowired
+	private IPatientRepository patientRepo;
+	@Autowired
+	private IPraticienRepository praticienRepo;
 	@Autowired
 	private IRdvRepository rdvRepo;
+	@Autowired
+	private ISpecialiteRepository specialiteRepo;
+	@Autowired
+	private IUtilisateurRepository utilisateurRepo;
 	
 	/*@Autowired
 	private IPraticienRepository praticienRepo;
@@ -46,8 +64,6 @@ class MonRdvApplicationTests {
 	
 	@Test
 	void contextLoads() {
-		
-		
 			Rdv rdv = new Rdv();
 			rdvRepo.save(rdv);
 			

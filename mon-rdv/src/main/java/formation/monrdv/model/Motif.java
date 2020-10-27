@@ -28,8 +28,9 @@ public class Motif {
 	@ManyToOne
 	@JoinColumn(name="praticien_id")
 	private Praticien praticien;
-	//@ManyToMany
 	@Transient
+//	@ManyToMany
+//	@JoinColumn(name="lieu_id")
 	private List<Lieu>lieux = new ArrayList<Lieu>();
 	
 	public Motif() {

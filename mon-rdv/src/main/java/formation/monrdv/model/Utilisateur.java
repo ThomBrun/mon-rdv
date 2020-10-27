@@ -19,7 +19,6 @@ public abstract class Utilisateur{
 	private String motDePasse;
 	private String email;
 
-
 	public Utilisateur() {
 		super();
 		// TODO Auto-generated constructor stub
