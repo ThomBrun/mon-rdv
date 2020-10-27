@@ -1,5 +1,9 @@
 package formation.persistence;
 
-public interface IPraticienRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import formation.model.Praticien;
+
+public interface IPraticienRepository  extends JpaRepository<Praticien, Long>{
 
 }

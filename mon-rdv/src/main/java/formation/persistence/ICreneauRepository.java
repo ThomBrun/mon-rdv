@@ -1,5 +1,9 @@
 package formation.persistence;
 
-public interface ICreneauRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import formation.model.Creneau;
+
+public interface ICreneauRepository extends JpaRepository<Creneau, Long>{
 
 }
