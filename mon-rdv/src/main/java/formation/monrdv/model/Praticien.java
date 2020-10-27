@@ -4,16 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
-//@Entity
+@Entity
 public class Praticien extends Utilisateur {
 	private String nom;
 	private String prenom;
 	private int uniteHoraire;
 
+	@Transient
 	private List<Specialite> specialites = new ArrayList<Specialite>();
+	@OneToMany(mappedBy = "praticien")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	@Transient
 	private List<Lieu> lieux = new ArrayList<Lieu>();
+	@Transient
 	private List<Motif> motifs = new ArrayList<Motif>();
 	
 	public Praticien() {
