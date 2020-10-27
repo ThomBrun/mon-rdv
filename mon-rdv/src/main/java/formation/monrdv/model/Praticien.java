@@ -15,13 +15,15 @@ public class Praticien extends Utilisateur {
 	private String prenom;
 	private int uniteHoraire;
 
-	@ManyToMany
-	@JoinColumn(name="specialite_id")
+	@Transient
+//	@ManyToMany
+//	@JoinColumn(name="specialite_id")
 	private List<Specialite> specialites = new ArrayList<Specialite>();
 	@OneToMany(mappedBy = "praticien")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
-	@ManyToMany
-	@JoinColumn(name = "lieu_id")
+	@Transient
+//	@ManyToMany
+//	@JoinColumn(name = "lieu_id")
 	private List<Lieu> lieux = new ArrayList<Lieu>();
 	@OneToMany(mappedBy = "praticien")
 	private List<Motif> motifs = new ArrayList<Motif>();

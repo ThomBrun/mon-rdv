@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 
 @Entity
@@ -25,9 +26,11 @@ public class Lieu {
 	
 	@OneToMany(mappedBy = "lieu")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
-	@ManyToMany(mappedBy = "lieu")
+	@Transient
+//	@ManyToMany(mappedBy = "lieu")
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
-	@ManyToMany(mappedBy = "lieu")
+	@Transient
+//	@ManyToMany(mappedBy = "lieu")
 	private List<Motif> motifs = new ArrayList<Motif>();
 	
 	public Lieu() {

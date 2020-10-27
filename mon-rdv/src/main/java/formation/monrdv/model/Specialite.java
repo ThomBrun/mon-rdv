@@ -19,7 +19,8 @@ public class Specialite {
 	private int version;
 	private String nom;
 	
-	@ManyToMany(mappedBy = "specialite")
+	@Transient
+//	@ManyToMany(mappedBy = "specialite")
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
 	
 	public Specialite() {
