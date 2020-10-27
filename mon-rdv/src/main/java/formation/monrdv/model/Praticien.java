@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 
 @Entity
 public class Praticien extends Utilisateur {
@@ -15,15 +15,15 @@ public class Praticien extends Utilisateur {
 	private String prenom;
 	private int uniteHoraire;
 
-	@Transient
-//	@ManyToMany
-//	@JoinColumn(name="specialite_id")
+	@ManyToMany
+	@JoinTable(name="praticien_specialite", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn(name="specialite_id", referencedColumnName = "id"))
 	private List<Specialite> specialites = new ArrayList<Specialite>();
 	@OneToMany(mappedBy = "praticien")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
-	@Transient
-//	@ManyToMany
-//	@JoinColumn(name = "lieu_id")
+	@ManyToMany
+	@JoinTable(name="praticien_lieu", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn(name="lieu_id", referencedColumnName = "id"))
 	private List<Lieu> lieux = new ArrayList<Lieu>();
 	@OneToMany(mappedBy = "praticien")
 	private List<Motif> motifs = new ArrayList<Motif>();

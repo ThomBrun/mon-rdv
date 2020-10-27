@@ -7,10 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 
 @Entity
@@ -28,9 +28,9 @@ public class Motif {
 	@ManyToOne
 	@JoinColumn(name="praticien_id")
 	private Praticien praticien;
-	@Transient
-//	@ManyToMany
-//	@JoinColumn(name="lieu_id")
+	@ManyToMany
+	@JoinTable(name="motif_lieu", joinColumns = @JoinColumn(name= "motif_id", referencedColumnName = "id"),
+	inverseJoinColumns = @JoinColumn(name="lieu_id", referencedColumnName = "id"))
 	private List<Lieu>lieux = new ArrayList<Lieu>();
 	
 	public Motif() {
