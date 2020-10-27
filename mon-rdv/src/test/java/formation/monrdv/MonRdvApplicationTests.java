@@ -1,5 +1,8 @@
 package formation.monrdv;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,21 +51,98 @@ class MonRdvApplicationTests {
 	
 	
 	@Test
-	void contextLoads() {
-			Rdv rdv = new Rdv();
-			rdvRepo.save(rdv);
+	void contextLoads() throws ParseException {
+		
+			Lieu lieu1 = new Lieu("Clinique de l'abbaye", "chemin de traverse", "Pessac", 33600, 5, null, null, null);
+			lieuRepo.save(lieu1);
 			
-			Praticien praticien = new Praticien();
-			praticienRepo.save(praticien);
+			Lieu lieu2 = new Lieu("Hôpital Salpetrière", "Boulevard de l'Hôpital", "Paris", 75013, 47, null, null, null);
+			lieuRepo.save(lieu2);
 			
-			Lieu lieu = new Lieu();
-			lieuRepo.save(lieu);
+			Lieu lieu3 = new Lieu("Hôpital Haut-Lévêque", "Avenue Magellan", "Pessac", 33600 , 3, null, null, null);
+			lieuRepo.save(lieu3);
+			
+			Lieu lieu4 = new Lieu("Clinique Saint-Augustin", "avenue d'Arès", "Bordeaux", 33074  , 3, null, null, null);
+			lieuRepo.save(lieu4);
+			
+			///////////////////////////////////////////////////////////////////////////////////
+			
+		    SimpleDateFormat sdf2 = null;
+			sdf2 = new SimpleDateFormat("yyyyMMddHHmmss");
+			
+			Creneau creneau1 = new Creneau(sdf2.parse("20201028080000"), null, null, null); //08h le 28/10/2020, unite horaire = 10
+			creneauRepo.save(creneau1);
+			
+			Creneau creneau2 = new Creneau(sdf2.parse("20201028081000"), null, null, null);
+			creneauRepo.save(creneau2);
+			
+			Creneau creneau3 = new Creneau(sdf2.parse("20201028082000"), null, null, null);
+			creneauRepo.save(creneau3);
+			
+			Creneau creneau4 = new Creneau(sdf2.parse("20201028083000"), null, null, null);
+			creneauRepo.save(creneau4);
+			
+			Creneau creneau5 = new Creneau(sdf2.parse("20201028084000"), null, null, null);
+			creneauRepo.save(creneau5);
+			
+			Creneau creneau6 = new Creneau(sdf2.parse("20201028085000"), null, null, null);
+			creneauRepo.save(creneau6);
+			
+			////////
+			
+			Creneau creneau7 = new Creneau(sdf2.parse("20201028140000"), null, null, null); //14h le 28/10/2020, unite horaire = 10
+			creneauRepo.save(creneau7);
+			
+			Creneau creneau8 = new Creneau(sdf2.parse("20201028141000"), null, null, null);
+			creneauRepo.save(creneau8);
+			
+			Creneau creneau9 = new Creneau(sdf2.parse("20201028142000"), null, null, null);
+			creneauRepo.save(creneau9);
+			
+			////////
+			
+			Creneau creneau10 = new Creneau(sdf2.parse("20201028100000"), null, null, null); //10h le 29/10/2020, unite horaire = 15
+			creneauRepo.save(creneau10);
+			
+			Creneau creneau11 = new Creneau(sdf2.parse("20201028101500"), null, null, null);
+			creneauRepo.save(creneau11);
+			
+			Creneau creneau12 = new Creneau(sdf2.parse("20201028103000"), null, null, null);
+			creneauRepo.save(creneau12);
+			
+			Creneau creneau13 = new Creneau(sdf2.parse("20201028104500"), null, null, null);
+			creneauRepo.save(creneau13);
+			
+			///////////////////////////////////////////////////////////////////////////////////
+			
+			Specialite specialite1 = new Specialite("Orthodontie", null);
+			specialiteRepo.save(specialite1);
+			
+			Specialite specialite2 = new Specialite("Pédiatre", null);
+			specialiteRepo.save(specialite2);
+			
+			Specialite specialite3 = new Specialite("kinésithérapeute", null);
+			specialiteRepo.save(specialite3);
+			
+			///////////////////////////////////////////////////////////////////////////////////
+
+			Praticien praticien1 = new Praticien("Robert", "Richelieu", 10, null, null, null, null);
+			praticienRepo.save(praticien1);
+			
+			Praticien praticien2 = new Praticien("Christophe", "Pascot", 10, null, null, null, null);
+			praticienRepo.save(praticien2);
+			
+			Praticien praticien3 = new Praticien("Laura", "Durand", 15, null, null, null, null);
+			praticienRepo.save(praticien3);
+			
+
+			
+			
+			
+
 			
 			Patient patient = new Patient();
 			patientRepo.save(patient);
-
-			Specialite specialite = new Specialite();
-			specialiteRepo.save(specialite);
 
 			Motif motif = new Motif();
 			motifRepo.save(motif);
@@ -70,14 +150,13 @@ class MonRdvApplicationTests {
 			Administrateur administrateur = new Administrateur();			
 			adminRepo.save(administrateur);
 			
+			Rdv rdv = new Rdv();
+			rdvRepo.save(rdv);
+			
 
-			Creneau creneau1 = new Creneau();
 			
 			//rdv.getCreneaux().add(creneau1); // ignoré par hibernate, maître = creneau, esclave = rdv
 			
-			creneau1.setRdv(rdv);
-			
-			creneauRepo.save(creneau1);
 	}
 
 }
