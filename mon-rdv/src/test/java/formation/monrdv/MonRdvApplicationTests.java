@@ -17,7 +17,10 @@ import formation.monrdv.model.Patient;
 import formation.monrdv.model.Praticien;
 import formation.monrdv.model.Rdv;
 import formation.monrdv.model.Specialite;
+<<<<<<< HEAD
 import formation.monrdv.model.Utilisateur;
+=======
+>>>>>>> main
 import formation.monrdv.repository.IAdministrateurRepository;
 import formation.monrdv.repository.ICreneauRepository;
 import formation.monrdv.repository.ILieuRepository;
@@ -49,11 +52,19 @@ class MonRdvApplicationTests {
 	private ISpecialiteRepository specialiteRepo;
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo;
+<<<<<<< HEAD
 	
 
 	
 	@Test
 	void contextLoads() throws ParseException {
+=======
+		
+	@Test
+	void contextLoads() throws ParseException {
+		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+>>>>>>> main
 		
 			Lieu lieu1 = new Lieu("Clinique de l'abbaye", "chemin de traverse", "Pessac", 33600, 5, null, null, null);
 			lieuRepo.save(lieu1);
@@ -136,9 +147,9 @@ class MonRdvApplicationTests {
 			
 			Praticien praticien3 = new Praticien("Laura", "Durand", 15, null, null, null, null);
 			praticienRepo.save(praticien3);
-			
 
 			
+<<<<<<< HEAD
 //			Praticien praticien = new Praticien();
 //			praticienRepo.save(praticien);
 //			
@@ -154,6 +165,8 @@ class MonRdvApplicationTests {
 //			
 			SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 
+=======
+>>>>>>> main
 			Administrateur admin1 = new Administrateur();
 			Administrateur admin2 = new Administrateur();
 			admin1.setEmail("admin1@gmail.com");
@@ -177,9 +190,6 @@ class MonRdvApplicationTests {
 			patientRepo.save(patient2);
 			Patient patient = new Patient();
 			patientRepo.save(patient);
-			
-
-			
 
 			Rdv rdv1 = new Rdv();
 			Rdv rdv2 = new Rdv();
@@ -260,6 +270,10 @@ class MonRdvApplicationTests {
 
 
 
+			motifpat1.getLieux().add(lieu1);
+			motifpat1.getLieux().add(lieu2);
+			motifRepo.save(motifpat1);
+			
 	}
 
 }
