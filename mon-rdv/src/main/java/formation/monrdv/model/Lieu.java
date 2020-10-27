@@ -1,10 +1,21 @@
-package formation.model;
+package formation.monrdv.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
+
+//@Entity
 public class Lieu {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private String nom;
 	private String rue;
@@ -12,8 +23,11 @@ public class Lieu {
 	private int codePostal;
 	private int numero;
 	
+	@OneToMany(mappedBy = "lieu")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	@ManyToMany(mappedBy = "lieu")
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
+	@ManyToMany(mappedBy = "lieu")
 	private List<Motif> motifs = new ArrayList<Motif>();
 	
 	public Lieu() {

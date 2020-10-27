@@ -1,10 +1,19 @@
-package formation.model;
+package formation.monrdv.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Version;
+
+//@Entity
 public class Specialite {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private String nom;
 	

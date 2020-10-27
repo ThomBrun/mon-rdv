@@ -1,15 +1,33 @@
-package formation.model;
+package formation.monrdv.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
+import javax.persistence.Version;
+
+@Entity
 public class Creneau {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private Date date;
 	
-	private Rdv rdv = new Rdv();
-	private Praticien praticien = new Praticien();
-	private Lieu lieu = new Lieu();
+	@ManyToOne
+	@JoinColumn(name="rdv_id")
+	private Rdv rdv;
+//	@ManyToOne
+	@Transient
+	private Praticien praticien;
+//	@ManyToOne
+	@Transient
+	private Lieu lieu;
 	
 	public Creneau() {
 		super();

@@ -1,7 +1,18 @@
-package formation.model;
+package formation.monrdv.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.Version;
+
+//@Entity
+//@Inheritance
 public abstract class Utilisateur{
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	private String identifiant;
 	private String motDePasse;

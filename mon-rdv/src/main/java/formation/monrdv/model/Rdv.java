@@ -1,14 +1,28 @@
-package formation.model;
+package formation.monrdv.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
+import javax.persistence.Version;
+
+@Entity
 public class Rdv {
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Version
 	private int version;
 	
+	@Transient
 	private Patient patient;
+	@OneToMany(mappedBy = "rdv")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	@Transient
 	private Motif motif;
 	
 	public Rdv() {
