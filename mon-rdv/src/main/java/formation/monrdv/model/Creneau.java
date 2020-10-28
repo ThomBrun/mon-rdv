@@ -9,23 +9,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Creneau {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private Date date;
 	
 	@ManyToOne
 	@JoinColumn(name="rdv_id")
+	@JsonView(Views.ViewCreneau.class)
 	private Rdv rdv;
+	
 	@ManyToOne
 	@JoinColumn(name="praticien_id")
+	@JsonView(Views.ViewCreneau.class)
 	private Praticien praticien;
+	
 	@ManyToOne
 	@JoinColumn(name="lieu_id")
+	@JsonView(Views.ViewCreneau.class)
 	private Lieu lieu;
 	
 	public Creneau() {
