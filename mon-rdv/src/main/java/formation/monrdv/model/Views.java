@@ -6,13 +6,18 @@ public class Views {
 	
 	public static class ViewUtilisateur extends ViewCommon {}
 
-	public static class ViewAdministrateur extends ViewUtilisateur {}
+	public static class ViewAdministrateur extends ViewCommon {}
 	
-	public static class ViewPatient extends ViewUtilisateur {}
+	public static class ViewPatient extends ViewCommon {}
 
-	public static class ViewPraticien extends ViewUtilisateur {}
+	public static class ViewPraticien extends ViewCommon {}
 
+	public static class ViewSpecialite extends ViewCommon {}
 
-
+	public static class ViewCreneau extends ViewCommon {}
+	
+	public static class ViewLieu extends ViewCommon {}
+	
+	public static class ViewMotif extends ViewCommon {}
 
 }

@@ -1,4 +1,4 @@
-package formation.web;
+package formation.monrdv.web;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +28,7 @@ import formation.monrdv.repository.IAdministrateurRepository;
 //@CrossOrigin("*")
 public class AdministrateurRestController {
 	
-	/*@Autowired
+	@Autowired
 	private IAdministrateurRepository administrateurRepo;
 
 	@GetMapping("")
@@ -50,14 +50,14 @@ public class AdministrateurRestController {
 		}
 	}
 	
-	@GetMapping("/moncompte/{identifiant}")
+	/*@GetMapping("/moncompte/{identifiant}")
 	@JsonView(Views.ViewAdministrateur.class)
 	public Administrateur findByIdentifiant(@PathVariable String identifiant) {
 		
 		Administrateur administrateur = administrateurRepo.findByIdentifiant(identifiant);
 		
 		return administrateur;	
-	}
+	}*/
 
 	@PostMapping("")
 	public Administrateur create(@RequestBody Administrateur administrateur) {
@@ -80,7 +80,7 @@ public class AdministrateurRestController {
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		administrateurRepo.deleteById(id);
-	}*/
+	}
 
 }
 

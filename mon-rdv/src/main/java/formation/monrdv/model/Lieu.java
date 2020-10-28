@@ -10,24 +10,38 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Lieu {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String rue;
+	@JsonView(Views.ViewCommon.class)
 	private String ville;
+	@JsonView(Views.ViewCommon.class)
 	private int codePostal;
+	@JsonView(Views.ViewCommon.class)
 	private int numero;
 	
 	@OneToMany(mappedBy = "lieu")
+	@JsonView(Views.ViewLieu.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	
 	@ManyToMany(mappedBy = "lieux")
+	@JsonView(Views.ViewLieu.class)
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
+	
 	@ManyToMany(mappedBy = "lieux")
+	@JsonView(Views.ViewLieu.class)
 	private List<Motif> motifs = new ArrayList<Motif>();
 	
 	public Lieu() {

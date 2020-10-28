@@ -1,4 +1,4 @@
-package formation.web;
+package formation.monrdv.web;
 
 public class UtilisateurRestController {
 

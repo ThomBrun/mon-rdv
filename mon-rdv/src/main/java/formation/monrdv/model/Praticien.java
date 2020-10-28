@@ -9,25 +9,36 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Praticien extends Utilisateur {
+	
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
+	@JsonView(Views.ViewCommon.class)
 	private int uniteHoraire;
 
 	@ManyToMany
 	@JoinTable(name="praticien_specialite", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="specialite_id", referencedColumnName = "id"))
+	@JsonView(Views.ViewPraticien.class)
 	private List<Specialite> specialites = new ArrayList<Specialite>();
 	
 	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewPraticien.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	
 	@ManyToMany
 	@JoinTable(name="praticien_lieu", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="lieu_id", referencedColumnName = "id"))
+	@JsonView(Views.ViewPraticien.class)
 	private List<Lieu> lieux = new ArrayList<Lieu>();
 	
 	@OneToMany(mappedBy = "praticien")
+	@JsonView(Views.ViewPraticien.class)
 	private List<Motif> motifs = new ArrayList<Motif>();
 	
 	public Praticien() {

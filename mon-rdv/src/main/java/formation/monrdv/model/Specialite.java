@@ -9,16 +9,22 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Specialite {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	
 	@ManyToMany(mappedBy = "specialites")
+	@JsonView(Views.ViewSpecialite.class)
 	private List<Praticien> praticiens = new ArrayList<Praticien>();
 	
 	public Specialite() {
