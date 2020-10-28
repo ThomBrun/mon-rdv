@@ -16,6 +16,7 @@ export class Specialite {
     this.nom = nom;
     this.praticiens = praticiens;
   }
+
 }
 
 
