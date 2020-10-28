@@ -158,7 +158,9 @@ class MonRdvApplicationTests {
 			creneauRepo.save(creneau10);
 			creneauRepo.save(creneau11);
 			praticien1.getSpecialites().add(specialite1);
+			motifpat1.setPraticien(praticien1);
 			praticien2.getSpecialites().add(specialite3);
+			motifpat2.setPraticien(praticien2);
 			praticien1.getLieux().add(lieu1);
 			praticien1.getLieux().add(lieu2);
 			praticien1.getLieux().add(lieu3);
