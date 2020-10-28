@@ -174,5 +174,6 @@ class MonRdvApplicationTests {
 			motifpat2.getLieux().add(lieu1);
 			motifpat2.getLieux().add(lieu2);
 			motifRepo.save(motifpat2);
+	
 	}
 }

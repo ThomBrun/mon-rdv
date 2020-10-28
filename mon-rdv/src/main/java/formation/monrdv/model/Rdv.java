@@ -28,7 +28,7 @@ public class Rdv {
 	@JoinColumn(name = "patient_id")
 	private Patient patient;
 	@OneToMany(mappedBy = "rdv")
-	@JsonView(Views.ViewCommon.class)
+	@JsonView(Views.ViewRdv.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 	@ManyToOne
 	@JoinColumn(name = "motif_id")
