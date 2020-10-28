@@ -13,21 +13,30 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Motif {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private int duree;
 	
+	@JsonView(Views.ViewMotif.class)
 	@OneToMany(mappedBy = "motif")
 	private List<Rdv>Rdvs = new ArrayList<Rdv>();
+	@JsonView(Views.ViewMotif.class)
 	@ManyToOne
 	@JoinColumn(name="praticien_id")
 	private Praticien praticien;
+	@JsonView(Views.ViewMotif.class)
 	@ManyToMany
 	@JoinTable(name="motif_lieu", joinColumns = @JoinColumn(name= "motif_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="lieu_id", referencedColumnName = "id"))

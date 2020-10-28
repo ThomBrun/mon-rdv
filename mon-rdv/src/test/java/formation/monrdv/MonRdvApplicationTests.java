@@ -1,5 +1,4 @@
 package formation.monrdv;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -24,10 +23,8 @@ import formation.monrdv.repository.IPraticienRepository;
 import formation.monrdv.repository.IRdvRepository;
 import formation.monrdv.repository.ISpecialiteRepository;
 import formation.monrdv.repository.IUtilisateurRepository;
-
 @SpringBootTest
 class MonRdvApplicationTests {
-
 	@Autowired
 	private IAdministrateurRepository adminRepo;
 	@Autowired
@@ -46,96 +43,62 @@ class MonRdvApplicationTests {
 	private ISpecialiteRepository specialiteRepo;
 	@Autowired
 	private IUtilisateurRepository utilisateurRepo;
-
-		
 	@Test
 	void contextLoads() throws ParseException {
-		
 			Lieu lieu1 = new Lieu("Clinique de l'abbaye", "chemin de traverse", "Pessac", 33600, 5);
 			lieuRepo.save(lieu1);
-			
 			Lieu lieu2 = new Lieu("Hôpital Salpetrière", "Boulevard de l'Hôpital", "Paris", 75013, 47);
 			lieuRepo.save(lieu2);
-			
 			Lieu lieu3 = new Lieu("Hôpital Haut-Lévêque", "Avenue Magellan", "Pessac", 33600 , 3);
 			lieuRepo.save(lieu3);
-			
 			Lieu lieu4 = new Lieu("Clinique Saint-Augustin", "avenue d'Arès", "Bordeaux", 33074  , 3);
 			lieuRepo.save(lieu4);
-			
 			///////////////////////////////////////////////////////////////////////////////////
-			
 		    SimpleDateFormat sdf2 = null;
 			sdf2 = new SimpleDateFormat("yyyyMMddHHmmss");
-			
 			Creneau creneau1 = new Creneau(sdf2.parse("20201028080000")); //08h le 28/10/2020, unite horaire = 10
 			creneauRepo.save(creneau1);
-			
 			Creneau creneau2 = new Creneau(sdf2.parse("20201028081000"));
 			creneauRepo.save(creneau2);
-			
 			Creneau creneau3 = new Creneau(sdf2.parse("20201028082000"));
 			creneauRepo.save(creneau3);
-			
 			Creneau creneau4 = new Creneau(sdf2.parse("20201028083000"));
 			creneauRepo.save(creneau4);
-			
 			Creneau creneau5 = new Creneau(sdf2.parse("20201028084000"));
 			creneauRepo.save(creneau5);
-			
 			Creneau creneau6 = new Creneau(sdf2.parse("20201028085000"));
 			creneauRepo.save(creneau6);
-			
 			////////
-			
 			Creneau creneau7 = new Creneau(sdf2.parse("20201028140000")); //14h le 28/10/2020, unite horaire = 10
 			creneauRepo.save(creneau7);
-			
 			Creneau creneau8 = new Creneau(sdf2.parse("20201028141000"));
 			creneauRepo.save(creneau8);
-			
 			Creneau creneau9 = new Creneau(sdf2.parse("20201028142000"));
 			creneauRepo.save(creneau9);
-			
 			////////
-			
 			Creneau creneau10 = new Creneau(sdf2.parse("20201028100000")); //10h le 29/10/2020, unite horaire = 15
 			creneauRepo.save(creneau10);
-			
 			Creneau creneau11 = new Creneau(sdf2.parse("20201028101500"));
 			creneauRepo.save(creneau11);
-			
 			Creneau creneau12 = new Creneau(sdf2.parse("20201028103000"));
 			creneauRepo.save(creneau12);
-			
 			Creneau creneau13 = new Creneau(sdf2.parse("20201028104500"));
 			creneauRepo.save(creneau13);
-			
 			///////////////////////////////////////////////////////////////////////////////////
-			
 			Specialite specialite1 = new Specialite("Orthodontie");
 			specialiteRepo.save(specialite1);
-			
 			Specialite specialite2 = new Specialite("Pédiatre");
 			specialiteRepo.save(specialite2);
-			
 			Specialite specialite3 = new Specialite("kinésithérapeute");
 			specialiteRepo.save(specialite3);
-			
 			///////////////////////////////////////////////////////////////////////////////////
-
 			Praticien praticien1 = new Praticien("Robert", "Richelieu", 10);
 			praticienRepo.save(praticien1);
-			
 			Praticien praticien2 = new Praticien("Christophe", "Pascot", 10);
 			praticienRepo.save(praticien2);
-			
 			Praticien praticien3 = new Praticien("Laura", "Durand", 15);
 			praticienRepo.save(praticien3);
-		
 			SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-
-	// Administrateur
 			Administrateur admin1 = new Administrateur();
 			Administrateur admin2 = new Administrateur();
 			admin1.setEmail("admin1@gmail.com");
@@ -146,8 +109,6 @@ class MonRdvApplicationTests {
 			admin2.setMotDePasse("admin2mdp");
 			adminRepo.save(admin1);
 			adminRepo.save(admin2);
-			
-	// Patient
 			Patient patient1 = new Patient("Truc", "Jean-Pierre", sdf1.parse("14/11/1999"), 37, "rue1", 33700, "Mérignac");
 			Patient patient2 = new Patient("Machin", "Bob", sdf1.parse("14/11/1999"), 18, "rue2", 33000, "Bordeaux");
 			patient1.setEmail("truc@gmail.com");
@@ -158,99 +119,60 @@ class MonRdvApplicationTests {
 			patient2.setMotDePasse("9876544321");
 			patientRepo.save(patient1);
 			patientRepo.save(patient2);
-	
-	// Rdv
+			Patient patient = new Patient();
+			patientRepo.save(patient);
 			Rdv rdv1 = new Rdv();
 			Rdv rdv2 = new Rdv();
+			rdv1.setPatient(patient1);
+			rdv2.setPatient(patient2);
 			rdvRepo.save(rdv1);
 			rdvRepo.save(rdv2);
-
-	// Motif
+			Motif motif = new Motif();
+			motifRepo.save(motif);
+			Administrateur administrateur = new Administrateur();			
+			adminRepo.save(administrateur);
+			Rdv rdv = new Rdv();
+			rdvRepo.save(rdv);
 			Motif motifpat1 = new Motif("consultation", 20);
 			Motif motifpat2 = new Motif("Carrie", 30);
 			motifRepo.save(motifpat1);
 			motifRepo.save(motifpat2);
-			
-	// lien rdv - patient
-			rdv1.setPatient(patient1);
-			rdv2.setPatient(patient2);
-			
-	// lien rdv - motif
 			rdv1.setMotif(motifpat1);
 			rdv2.setMotif(motifpat2);
 			rdvRepo.save(rdv1);
 			rdvRepo.save(rdv2);
-	
-	//lien creneau - rdv
 			creneau1.setRdv(rdv1);
 			creneau2.setRdv(rdv1);
-			
 			creneau10.setRdv(rdv2);
 			creneau11.setRdv(rdv2);
-			
-	// lien creneau - lieu
 			creneau1.setLieu(lieu1);
 			creneau2.setLieu(lieu1);
-
 			creneau10.setLieu(lieu2);
 			creneau11.setLieu(lieu2);
-			
-	// lien creneau - praticien
 			creneau1.setPraticien(praticien1);
 			creneau2.setPraticien(praticien1);
-
 			creneau10.setPraticien(praticien2);
 			creneau11.setPraticien(praticien2);
-			
 			creneauRepo.save(creneau1);
 			creneauRepo.save(creneau2);
 			creneauRepo.save(creneau10);
 			creneauRepo.save(creneau11);
-			
-			
-	// lien praticien - specialite
 			praticien1.getSpecialites().add(specialite1);
-			praticien1.getSpecialites().add(specialite2);
+			praticien1.getMotifs().add(motifpat1);
 			praticien2.getSpecialites().add(specialite3);
-			praticien2.getSpecialites().add(specialite2);
-			
+			praticien2.getMotifs().add(motifpat2);
+			praticien1.getLieux().add(lieu1);
+			praticien1.getLieux().add(lieu2);
+			praticien1.getLieux().add(lieu3);
 			praticienRepo.save(praticien1);
+			praticien2.getLieux().add(lieu2);
+			praticien2.getLieux().add(lieu4);
 			praticienRepo.save(praticien2);
-
-	// lien motif - praticien
-			motifpat1.setPraticien(praticien1);
-			motifpat2.setPraticien(praticien2);
+			motifpat1.getLieux().add(lieu1);
+			motifpat1.getLieux().add(lieu3);
 			motifRepo.save(motifpat1);
+			motifpat2.getLieux().add(lieu1);
+			motifpat2.getLieux().add(lieu2);
 			motifRepo.save(motifpat2);
-			
-	// lien motif - lieu
-//			motifpat1.getLieux().add(lieu1);
-//			lieu1.getMotifs().add(motifpat1);
-//			motifRepo.save(motifpat1);
-//			lieuRepo.save(lieu1);
-			
-//	// lien praticien - lieu
-//			praticien1.getLieux().add(lieu1);
-//			praticien1.getLieux().add(lieu2);
-//			praticien1.getLieux().add(lieu3);
-//			praticienRepo.save(praticien1);
-
-////			praticien2.getLieux().add(lieu2);
-////			praticien2.getLieux().add(lieu4);
-////			praticienRepo.save(praticien2);
-//
-////			motifpat1.getLieux().add(lieu1);
-////			motifpat1.getLieux().add(lieu3);
-////			motifRepo.save(motifpat1);
-//			
-////			motifpat1.getLieux().add(lieu1);
-////			motifpat1.getLieux().add(lieu2);
-////			motifRepo.save(motifpat1);
-//			
-////			motifpat2.getLieux().add(lieu1);
-////			motifpat2.getLieux().add(lieu2);
-////			motifRepo.save(motifpat2);
-//			
 	}
-
 }

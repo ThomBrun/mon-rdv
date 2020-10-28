@@ -11,18 +11,28 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Patient extends Utilisateur {
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String prenom;
+	@JsonView(Views.ViewCommon.class)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dtNaissance;
+	@JsonView(Views.ViewCommon.class)
 	private int numero;
+	@JsonView(Views.ViewCommon.class)
 	private String rue;
+	@JsonView(Views.ViewCommon.class)
 	private int codePostal;
+	@JsonView(Views.ViewCommon.class)
 	private String ville;
 	
+	@JsonView(Views.ViewPatient.class)
 	@OneToMany(mappedBy = "patient")
 	private List<Rdv> rdvs = new ArrayList<Rdv>();
 

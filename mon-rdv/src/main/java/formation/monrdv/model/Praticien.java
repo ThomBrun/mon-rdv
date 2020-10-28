@@ -13,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Praticien extends Utilisateur {
-	
 	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@JsonView(Views.ViewCommon.class)
@@ -21,22 +20,26 @@ public class Praticien extends Utilisateur {
 	@JsonView(Views.ViewCommon.class)
 	private int uniteHoraire;
 
+	@JsonView(Views.ViewCommon.class)
 	@ManyToMany
 	@JoinTable(name="praticien_specialite", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="specialite_id", referencedColumnName = "id"))
 	@JsonView(Views.ViewPraticien.class)
 	private List<Specialite> specialites = new ArrayList<Specialite>();
 	
+	@JsonView(Views.ViewCommon.class)
 	@OneToMany(mappedBy = "praticien")
 	@JsonView(Views.ViewPraticien.class)
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
 	
+	@JsonView(Views.ViewCommon.class)
 	@ManyToMany
 	@JoinTable(name="praticien_lieu", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="lieu_id", referencedColumnName = "id"))
 	@JsonView(Views.ViewPraticien.class)
 	private List<Lieu> lieux = new ArrayList<Lieu>();
 	
+	@JsonView(Views.ViewCommon.class)
 	@OneToMany(mappedBy = "praticien")
 	@JsonView(Views.ViewPraticien.class)
 	private List<Motif> motifs = new ArrayList<Motif>();

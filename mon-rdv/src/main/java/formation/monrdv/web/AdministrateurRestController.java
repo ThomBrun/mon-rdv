@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,14 +49,14 @@ public class AdministrateurRestController {
 		}
 	}
 	
-	/*@GetMapping("/moncompte/{identifiant}")
-	@JsonView(Views.ViewAdministrateur.class)
-	public Administrateur findByIdentifiant(@PathVariable String identifiant) {
-		
-		Administrateur administrateur = administrateurRepo.findByIdentifiant(identifiant);
-		
-		return administrateur;	
-	}*/
+//	@GetMapping("/moncompte/{identifiant}")
+//	@JsonView(Views.ViewAdministrateur.class)
+//	public Administrateur findByIdentifiant(@PathVariable String identifiant) {
+//		
+//		Administrateur administrateur = administrateurRepo.findByIdentifiant(identifiant);
+//		
+//		return administrateur;	
+//	}
 
 	@PostMapping("")
 	public Administrateur create(@RequestBody Administrateur administrateur) {
@@ -67,6 +66,7 @@ public class AdministrateurRestController {
 	}
 
 	@PutMapping("/{id}")
+	@JsonView(Views.ViewAdministrateur.class)
 	public Administrateur update(@RequestBody Administrateur administrateur, @PathVariable Long id) {
 		if (!administrateurRepo.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
@@ -81,11 +81,4 @@ public class AdministrateurRestController {
 	public void delete(@PathVariable Long id) {
 		administrateurRepo.deleteById(id);
 	}
-
 }
-
-
-
-
-
-
