@@ -34,16 +34,12 @@ public class Praticien extends Utilisateur {
 		super();
 	}
 
-	public Praticien(String nom, String prenom, int uniteHoraire, List<Specialite> specialites, List<Creneau> creneaux,
-			List<Lieu> lieux, List<Motif> motifs) {
+	public Praticien(String nom, String prenom, int uniteHoraire) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.uniteHoraire = uniteHoraire;
-		this.specialites = specialites;
-		this.creneaux = creneaux;
-		this.lieux = lieux;
-		this.motifs = motifs;
+		
 	}
 
 

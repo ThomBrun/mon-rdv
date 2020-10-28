@@ -25,10 +25,9 @@ public class Specialite {
 		super();
 	}
 
-	public Specialite(String nom, List<Praticien> praticiens) {
+	public Specialite(String nom) {
 		super();
 		this.nom = nom;
-		this.praticiens = praticiens;
 	}
 
 	public Long getId() {

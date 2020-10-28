@@ -34,17 +34,13 @@ public class Lieu {
 		super();
 	}
 
-	public Lieu(String nom, String rue, String ville, int codePostal, int numero, List<Creneau> creneaux,
-			List<Praticien> praticiens, List<Motif> motifs) {
+	public Lieu(String nom, String rue, String ville, int codePostal, int numero) {
 		super();
 		this.nom = nom;
 		this.rue = rue;
 		this.ville = ville;
 		this.codePostal = codePostal;
 		this.numero = numero;
-		this.creneaux = creneaux;
-		this.praticiens = praticiens;
-		this.motifs = motifs;
 	}
 
 	public Long getId() {

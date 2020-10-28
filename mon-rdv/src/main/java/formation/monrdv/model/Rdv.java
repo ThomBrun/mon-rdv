@@ -32,11 +32,9 @@ public class Rdv {
 		super();
 	}
 
-	public Rdv(Patient patient, List<Creneau> creneaux, Motif motif) {
+	public Rdv(Patient patient) {
 		super();
 		this.patient = patient;
-		this.creneaux = creneaux;
-		this.motif = motif;
 	}
 
 	public Long getId() {

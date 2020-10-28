@@ -33,12 +33,9 @@ public class Creneau {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Creneau(Date date, Rdv rdv, Praticien praticien, Lieu lieu) {
+	public Creneau(Date date) {
 		super();
 		this.date = date;
-		this.rdv = rdv;
-		this.praticien = praticien;
-		this.lieu = lieu;
 	}
 
 	public Long getId() {
