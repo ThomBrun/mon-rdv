@@ -2,8 +2,6 @@ package formation.monrdv;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +15,6 @@ import formation.monrdv.model.Patient;
 import formation.monrdv.model.Praticien;
 import formation.monrdv.model.Rdv;
 import formation.monrdv.model.Specialite;
-import formation.monrdv.model.Utilisateur;
-
 import formation.monrdv.repository.IAdministrateurRepository;
 import formation.monrdv.repository.ICreneauRepository;
 import formation.monrdv.repository.ILieuRepository;
@@ -139,7 +135,7 @@ class MonRdvApplicationTests {
 		
 			SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 
-
+	// Administrateur
 			Administrateur admin1 = new Administrateur();
 			Administrateur admin2 = new Administrateur();
 			admin1.setEmail("admin1@gmail.com");
@@ -151,6 +147,7 @@ class MonRdvApplicationTests {
 			adminRepo.save(admin1);
 			adminRepo.save(admin2);
 			
+	// Patient
 			Patient patient1 = new Patient("Truc", "Jean-Pierre", sdf1.parse("14/11/1999"), 37, "rue1", 33700, "Mérignac");
 			Patient patient2 = new Patient("Machin", "Bob", sdf1.parse("14/11/1999"), 18, "rue2", 33000, "Bordeaux");
 			patient1.setEmail("truc@gmail.com");
@@ -161,46 +158,44 @@ class MonRdvApplicationTests {
 			patient2.setMotDePasse("9876544321");
 			patientRepo.save(patient1);
 			patientRepo.save(patient2);
-			Patient patient = new Patient();
-			patientRepo.save(patient);
-
+	
+	// Rdv
 			Rdv rdv1 = new Rdv();
 			Rdv rdv2 = new Rdv();
-			rdv1.setPatient(patient1);
-			rdv2.setPatient(patient2);
 			rdvRepo.save(rdv1);
 			rdvRepo.save(rdv2);
-			Motif motif = new Motif();
-			motifRepo.save(motif);
 
-			Administrateur administrateur = new Administrateur();			
-			adminRepo.save(administrateur);
-			
-			Rdv rdv = new Rdv();
-			rdvRepo.save(rdv);
-			
+	// Motif
 			Motif motifpat1 = new Motif("consultation", 20);
 			Motif motifpat2 = new Motif("Carrie", 30);
 			motifRepo.save(motifpat1);
 			motifRepo.save(motifpat2);
 			
+	// lien rdv - patient
+			rdv1.setPatient(patient1);
+			rdv2.setPatient(patient2);
+			
+	// lien rdv - motif
 			rdv1.setMotif(motifpat1);
 			rdv2.setMotif(motifpat2);
 			rdvRepo.save(rdv1);
 			rdvRepo.save(rdv2);
-			
+	
+	//lien creneau - rdv
 			creneau1.setRdv(rdv1);
 			creneau2.setRdv(rdv1);
 			
 			creneau10.setRdv(rdv2);
 			creneau11.setRdv(rdv2);
 			
+	// lien creneau - lieu
 			creneau1.setLieu(lieu1);
 			creneau2.setLieu(lieu1);
 
 			creneau10.setLieu(lieu2);
 			creneau11.setLieu(lieu2);
 			
+	// lien creneau - praticien
 			creneau1.setPraticien(praticien1);
 			creneau2.setPraticien(praticien1);
 
@@ -212,30 +207,50 @@ class MonRdvApplicationTests {
 			creneauRepo.save(creneau10);
 			creneauRepo.save(creneau11);
 			
+			
+	// lien praticien - specialite
 			praticien1.getSpecialites().add(specialite1);
-			praticien1.getMotifs().add(motifpat1);
-			
+			praticien1.getSpecialites().add(specialite2);
 			praticien2.getSpecialites().add(specialite3);
-			praticien2.getMotifs().add(motifpat2);
+			praticien2.getSpecialites().add(specialite2);
 			
-			praticien1.getLieux().add(lieu1);
-			praticien1.getLieux().add(lieu2);
-			praticien1.getLieux().add(lieu3);
 			praticienRepo.save(praticien1);
-
-			praticien2.getLieux().add(lieu2);
-			praticien2.getLieux().add(lieu4);
 			praticienRepo.save(praticien2);
 
-			motifpat1.getLieux().add(lieu1);
-			motifpat1.getLieux().add(lieu3);
+	// lien motif - praticien
+			motifpat1.setPraticien(praticien1);
+			motifpat2.setPraticien(praticien2);
 			motifRepo.save(motifpat1);
-			
-			motifpat2.getLieux().add(lieu1);
-			motifpat2.getLieux().add(lieu2);
 			motifRepo.save(motifpat2);
-
 			
+	// lien motif - lieu
+//			motifpat1.getLieux().add(lieu1);
+//			lieu1.getMotifs().add(motifpat1);
+//			motifRepo.save(motifpat1);
+//			lieuRepo.save(lieu1);
+			
+//	// lien praticien - lieu
+//			praticien1.getLieux().add(lieu1);
+//			praticien1.getLieux().add(lieu2);
+//			praticien1.getLieux().add(lieu3);
+//			praticienRepo.save(praticien1);
+
+////			praticien2.getLieux().add(lieu2);
+////			praticien2.getLieux().add(lieu4);
+////			praticienRepo.save(praticien2);
+//
+////			motifpat1.getLieux().add(lieu1);
+////			motifpat1.getLieux().add(lieu3);
+////			motifRepo.save(motifpat1);
+//			
+////			motifpat1.getLieux().add(lieu1);
+////			motifpat1.getLieux().add(lieu2);
+////			motifRepo.save(motifpat1);
+//			
+////			motifpat2.getLieux().add(lieu1);
+////			motifpat2.getLieux().add(lieu2);
+////			motifRepo.save(motifpat2);
+//			
 	}
 
 }

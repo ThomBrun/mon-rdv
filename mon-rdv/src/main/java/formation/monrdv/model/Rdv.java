@@ -32,11 +32,6 @@ public class Rdv {
 		super();
 	}
 
-	public Rdv(Patient patient) {
-		super();
-		this.patient = patient;
-	}
-
 	public Long getId() {
 		return id;
 	}

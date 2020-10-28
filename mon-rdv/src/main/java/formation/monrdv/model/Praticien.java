@@ -22,6 +22,7 @@ public class Praticien extends Utilisateur {
 	
 	@OneToMany(mappedBy = "praticien")
 	private List<Creneau> creneaux = new ArrayList<Creneau>();
+	
 	@ManyToMany
 	@JoinTable(name="praticien_lieu", joinColumns = @JoinColumn(name= "praticien_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name="lieu_id", referencedColumnName = "id"))
@@ -39,9 +40,7 @@ public class Praticien extends Utilisateur {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.uniteHoraire = uniteHoraire;
-		
 	}
-
 
 	public String getNom() {
 		return nom;
