@@ -189,10 +189,22 @@ class MonRdvApplicationTests {
 				System.out.println(spe.getNom());
 			}*/
 			
+			List<Specialite> testspecia = praticienRepo.findSpecialiteByPraticien(praticien1.getId());
+			for (Specialite spe : testspecia) {
+				System.out.print("nom specialite : ");
+				System.out.println(spe.getNom());
+			}
+			
 			List<Specialite> testspecia2 = specialiteRepo.findSpecialiteBynom("Orthodontie");
 			for (Specialite spe : testspecia2) {
 				System.out.print("id specialite : ");
 				System.out.println(spe.getId());
+			}
+			
+			List<Lieu> testlieu = praticienRepo.findLieuByPraticien(praticien1.getId());
+			for (Lieu li : testlieu) {
+				System.out.print("nom lieu : ");
+				System.out.println(li.getNom());
 			}
 	
 	}
