@@ -1,6 +1,7 @@
 package formation.monrdv;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -174,6 +175,25 @@ class MonRdvApplicationTests {
 			motifpat2.getLieux().add(lieu1);
 			motifpat2.getLieux().add(lieu2);
 			motifRepo.save(motifpat2);
+			
+			
+			/*List<Rdv> testrdv = rdvRepo.findRdvByPraticien(praticien1.getId());
+			
+			for (Rdv trdv : testrdv) {
+				System.out.println(trdv.getId());
+			}*/
+			
+			/*List<Specialite> testspecia = specialiteRepo.findSpecialiteByPraticien(praticien1.getId());
+			for (Specialite spe : testspecia) {
+				System.out.print("nom specialite : ");
+				System.out.println(spe.getNom());
+			}*/
+			
+			List<Specialite> testspecia2 = specialiteRepo.findSpecialiteBynom("Orthodontie");
+			for (Specialite spe : testspecia2) {
+				System.out.print("id specialite : ");
+				System.out.println(spe.getId());
+			}
 	
 	}
 }

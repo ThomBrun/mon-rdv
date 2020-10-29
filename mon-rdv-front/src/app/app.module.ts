@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { PageDaccueilComponent } from './components/page-daccueil/page-daccueil.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
@@ -13,6 +15,7 @@ import { RdvPraticienComponent } from './components/rdv-praticien/rdv-praticien.
 import { InfoPatientComponent } from './components/info-patient/info-patient.component';
 import { InfoPraticienComponent } from './components/info-praticien/info-praticien.component';
 import { DisponibilitesComponent } from './components/disponibilites/disponibilites.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { DisponibilitesComponent } from './components/disponibilites/disponibili
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
