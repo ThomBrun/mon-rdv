@@ -1,5 +1,6 @@
+<div class="container">
 <table class="table">
-  <thead>
+  <thead class="bg-white">
   <tr>
     <th>Praticiens</th>
     <th>Spécialités</th>
@@ -8,9 +9,10 @@
   </thead>
   <tbody>
   <tr *ngFor="let prat of listprat()">
-     <td>{{prat.nom}}{{prat.prenom}}</td>
-     <!-- <td>{{prat.specialites}}</td>
-     <td>{{prat.lieux}}</td> -->
+     <td>{{prat.nom}} {{prat.prenom}}</td>
+     <td>{{prat.specialites}}</td>
+     <td>{{prat.lieux}}</td>
   </tr>
   </tbody>
 </table>
+</div>
