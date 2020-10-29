@@ -30,7 +30,7 @@ import { DisponibilitesComponent } from './components/disponibilites/disponibili
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
