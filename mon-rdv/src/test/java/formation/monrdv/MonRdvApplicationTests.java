@@ -207,11 +207,13 @@ class MonRdvApplicationTests {
 				System.out.println(li.getNom());
 			}*/
 			
-			List<Rdv> testrdv = patientRepo.findRdvByPatient(patient1.getId());
+			
+			///////
+			/*List<Rdv> testrdv = patientRepo.findRdvByPatient(patient1.getId());
 			for (Rdv r : testrdv) {
 				System.out.print("id rdv : ");
 				System.out.println(r.getId());
-			}
+			}*/
 	
 	}
 }

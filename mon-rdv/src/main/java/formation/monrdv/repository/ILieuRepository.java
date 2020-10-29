@@ -10,7 +10,4 @@ import formation.monrdv.model.Lieu;
 
 public interface ILieuRepository  extends JpaRepository<Lieu, Long>{
 	
-	@Query("select l from Lieu l join l.praticiens p where p.id = :id")
-	List<Lieu> findLieuByPraticien(@Param("id") Long id);
-
 }

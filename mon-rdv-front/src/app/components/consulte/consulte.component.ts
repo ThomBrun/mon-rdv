@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ConsulteService} from './consulte.service';
+import {ConsulteService} from '../../service/consulte.service';
 import {Specialite} from '../../model/specialite';
 import {Lieu} from '../../model/lieu';
 import {Praticien} from '../../model/praticien';
@@ -17,7 +17,7 @@ export class ConsulteComponent implements OnInit {
   praticiens: Array<Praticien> = new Array<Praticien>();
 
   constructor(private consulteService: ConsulteService) {
-    this.listprat();
+    //this.listprat();
     // this.listspelieu(id);
   }
 
