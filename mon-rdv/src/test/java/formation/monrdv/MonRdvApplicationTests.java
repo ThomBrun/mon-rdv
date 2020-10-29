@@ -1,6 +1,7 @@
 package formation.monrdv;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -205,6 +206,12 @@ class MonRdvApplicationTests {
 				System.out.print("nom lieu : ");
 				System.out.println(li.getNom());
 			}*/
+			
+			List<Rdv> testrdv = patientRepo.findRdvByPatient(patient1.getId());
+			for (Rdv r : testrdv) {
+				System.out.print("id rdv : ");
+				System.out.println(r.getId());
+			}
 	
 	}
 }
