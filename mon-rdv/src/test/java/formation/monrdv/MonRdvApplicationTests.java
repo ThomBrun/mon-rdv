@@ -114,9 +114,9 @@ class MonRdvApplicationTests {
 			Patient patient2 = new Patient("Machin", "Bob", sdf1.parse("14/11/1999"), 18, "rue2", 33000, "Bordeaux");
 			patient1.setEmail("truc@gmail.com");
 			patient2.setEmail("bob@hotmail.fr");
-			patient1.setIdentifiant("JPTruc");
+			patient1.setIdentifiant("pat1id");
 			patient2.setIdentifiant("Bobbb");
-			patient1.setMotDePasse("123456789");
+			patient1.setMotDePasse("pat1mdp");
 			patient2.setMotDePasse("9876544321");
 			patientRepo.save(patient1);
 			patientRepo.save(patient2);
@@ -165,6 +165,8 @@ class MonRdvApplicationTests {
 			praticien1.getLieux().add(lieu1);
 			praticien1.getLieux().add(lieu2);
 			praticien1.getLieux().add(lieu3);
+			praticien1.setIdentifiant("p1id");
+			praticien1.setMotDePasse("p1mdp");
 			praticienRepo.save(praticien1);
 			praticien2.getLieux().add(lieu2);
 			praticien2.getLieux().add(lieu4);

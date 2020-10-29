@@ -14,11 +14,11 @@ export class SessionService {
     this.setUtilisateur(new Utilisateur());
   }
 
-  getClient(): Patient{
+  getPatient(): Patient{
     return JSON.parse(sessionStorage.getItem('utilisateur'));
   }
 
-  getFournisseur(): Praticien{
+  getPraticien(): Praticien{
     return JSON.parse(sessionStorage.getItem('utilisateur'));
   }
 
@@ -42,6 +42,10 @@ export class SessionService {
     sessionStorage.clear();
     window.location.reload();
     location.replace('/accueil');
+  }
+
+  getType(): string{
+    return JSON.parse(sessionStorage.getItem('utilisateur')).type;
   }
 
 }
