@@ -1,1 +1,12 @@
-<p>page-daccueil works!</p>
+
+<div class="container">
+  <h5 class="py-xl-4">Bienvenue sur mon-rdv.fr le site pour prendre ses rendez-vous médicaux en ligne</h5>
+  <h6 class="py-xl-4">Choisissez votre praticien, votre lieu de rendez-vous et votre créneau</h6>
+  <h6 class="py-xl-4">Consultez tous vos rendez-vous passés et futurs</h6>
+  <div class="my-xl-5 mx-5">
+    <button type="button" class="btn btn-outline-dark mx-5 stylebouton" [routerLink]="['/inscription']"><i class="fas fa-user-edit fa-2x pb-4"></i><p>Inscription</p></button>
+    <button type="button" class="btn btn-outline-dark mx-5 stylebouton" [routerLink]="['/logIn']"><i class="fas fa-user-check fa-2x pb-4"></i><p>Connexion</p></button>
+    <button type="button" class="btn btn-outline-dark mx-5 stylebouton" [routerLink]="['/consulte']"><i class="fas fa-notes-medical fa-2x pb-4"></i><p>Prendre RDV</p></button>
+  </div>
+</div>
+
