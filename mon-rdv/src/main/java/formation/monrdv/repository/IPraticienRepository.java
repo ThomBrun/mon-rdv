@@ -12,11 +12,11 @@ import formation.monrdv.model.Specialite;
 
 public interface IPraticienRepository  extends JpaRepository<Praticien, Long>{
 	
-	@Query("select s from Specialite s join s.praticiens p where p.id = :id")
+	/*@Query("select s from Specialite s join s.praticiens p where p.id = :id")
 	List<Specialite> findSpecialiteByPraticien(@Param("id") Long id);
 	
 	@Query("select l from Lieu l join l.praticiens p where p.id = :id")
-	List<Lieu> findLieuByPraticien(@Param("id") Long id);
+	List<Lieu> findLieuByPraticien(@Param("id") Long id);*/
 
 }
 
