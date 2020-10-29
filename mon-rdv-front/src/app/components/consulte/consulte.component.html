@@ -1,1 +1,16 @@
-<p>consulte works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Praticiens</th>
+    <th>Spécialités</th>
+    <th>Lieux</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let prat of list()">
+    <td>{{prat.nom}}{{prat.prenom}}</td>
+<!--    <td>{{prat.specialites}}</td>
+    <td>{{prat.lieux}}</td> -->
+  </tr>
+  </tbody>
+</table>

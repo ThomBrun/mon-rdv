@@ -18,7 +18,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import formation.monrdv.model.Lieu;
 import formation.monrdv.model.Praticien;
+import formation.monrdv.model.Specialite;
 import formation.monrdv.model.Views;
 import formation.monrdv.repository.IPraticienRepository;
 
@@ -50,6 +52,17 @@ public class PraticienRestController {
 		}
 	}
 	
+	@GetMapping("/by-specialite/{id}")
+	@JsonView(Views.ViewPraticien.class)
+	public List<Specialite> findSpecialiteByPraticien(@PathVariable Long id){
+		return praticienRepo.findSpecialiteByPraticien(id);
+	}
+	
+	@GetMapping("/by-lieu/{id}")
+	@JsonView(Views.ViewPraticien.class)
+	public List<Lieu> findLieuByPraticien(@PathVariable Long id){
+		return praticienRepo.findLieuByPraticien(id);
+	}
 
 	@PostMapping("")
 	public Praticien create(@RequestBody Praticien praticien) {

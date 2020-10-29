@@ -50,7 +50,6 @@ public class LieuRestController {
 		}
 	}
 	
-
 	@PostMapping("")
 	public Lieu create(@RequestBody Lieu lieu) {
 		lieu = lieuRepo.save(lieu);

@@ -19,4 +19,3 @@ public interface IPraticienRepository  extends JpaRepository<Praticien, Long>{
 	List<Lieu> findLieuByPraticien(@Param("id") Long id);*/
 
 }
-
