@@ -10,8 +10,9 @@
   <tbody>
   <tr *ngFor="let prat of listprat()">
      <td>{{prat.nom}} {{prat.prenom}}</td>
-     <td>{{prat.specialites}}</td>
-     <td>{{prat.lieux}}</td>
+     <td><div *ngFor="let col of prat.specialites"><div>{{col.nom}}</div></div></td>
+     <td><div *ngFor="let col of prat.lieux"><div>{{col.nom}}, <strong>{{col.ville}}</strong></div></div></td>
+
   </tr>
   </tbody>
 </table>
