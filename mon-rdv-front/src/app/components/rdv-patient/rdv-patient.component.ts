@@ -29,6 +29,8 @@ import {Lieu} from '../../model/lieu';
 import {Rdv} from '../../model/rdv';
 import {SessionService} from '../../service/session.service';
 import {RdvService} from '../../service/rdv.service';
+import {Creneau} from '../../model/creneau';
+import {LieuService} from '../../service/lieu.service';
 
 const colors: any = {
   red: {
@@ -91,8 +93,8 @@ export class RdvPatientComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
-    /*{
+  events: CalendarEvent[] = [/*
+    {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
       title: 'A 3 day event',
@@ -138,7 +140,7 @@ export class RdvPatientComponent implements OnInit {
   IDpat: number;
 
   constructor(private modal: NgbModal, private patientService: PatientService, private sessionService: SessionService,
-              private rdvService: RdvService) {
+              private rdvService: RdvService, private lieuService: LieuService) {
     this.IDpat = this.sessionService.getUserId();
   }
 
@@ -200,6 +202,21 @@ export class RdvPatientComponent implements OnInit {
     ];*/
   }
 
+  addEvent2(lieu: string, DateDBTRdv: Date, DateFINRdv: Date): void {
+    this.events.push({
+      title: lieu,
+      start: new Date(DateDBTRdv.toString()),
+      end: new Date(DateFINRdv.toString()),
+      color: colors.red,
+      draggable: true,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+    });
+    this.refresh.next();
+  }
+
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter((event) => event !== eventToDelete);
   }
@@ -215,35 +232,52 @@ export class RdvPatientComponent implements OnInit {
   addRdvs(){
     console.log('nombre de rdv');
     console.log(this.rdvs.length);
-    let DateDBTRdv: number | Date;
-    let DateFINRdv: number | Date;
+    let DateDBTRdv: Date;
+    let DateFINRdv: Date;
     let lieu;
     for (const rd of this.rdvs) {
-      // tslint:disable-next-line:max-line-length
+      let creneau1: Creneau;
       this.rdvService.findCreneauByRdv(this.rdvService.getRdvId(rd)).subscribe(resp => {DateDBTRdv = resp[0].date ;
-        // tslint:disable-next-line:max-line-length
-                                                                                        DateFINRdv = resp[resp.length - 1].date ;
+        DateFINRdv = resp[resp.length - 1].date ;
+        creneau1 = resp[0];
+
+        // tslint:disable-next-line:variable-name
+        let creneau_rdv: Creneau[];
+        for (const l of this.lieuService.findAll()){
+          this.lieuService.findCreneauByLieu(l.id).subscribe(resp2 => {creneau_rdv = resp2;
+              for (const c of creneau_rdv){
+                console.log(c.id);
+                console.log('///');
+                console.log(creneau1.id);
+
+                if (c.id === creneau1.id){
+                  console.log('rentre');
+                  lieu = l.nom;
+                  console.log(DateDBTRdv, DateFINRdv, lieu);
+                  this.addEvent2(lieu, DateDBTRdv, DateFINRdv);
+                }
+              };
 
 
-                                                                                        //lieu = resp[0].id//rd.creneaux[0].lieu;
+          } ,
+            error => console.log(error));
 
-        //this.events.push({
-        console.log(DateDBTRdv, DateFINRdv, lieu);
+        }
         this.events = [
           ...this.events,
           {
             title: lieu,
             start: DateDBTRdv,
             end: DateFINRdv,
-          actions: this.actions,
-          color: colors.red,
+            actions: this.actions,
+            color: colors.red,
             draggable: true,
             resizable: {
               beforeStart: true,
               afterEnd: true,
             },
           },
-    ];
+        ];
 
       }, error => console.log(error));
 
