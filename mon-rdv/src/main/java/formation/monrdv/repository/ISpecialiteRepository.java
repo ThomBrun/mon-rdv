@@ -10,5 +10,5 @@ import formation.monrdv.model.Specialite;
 
 public interface ISpecialiteRepository  extends JpaRepository<Specialite, Long>{
 
-
+	
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Patient} from '../model/patient';
+import {Rdv} from '../model/rdv';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class PatientService {
   /*findByIdentifiant(identifiant: string): Observable<Patient> {
     return this.http.get<Patient>('http://localhost:8080/patient/moncompte/' + identifiant);
   }*/
+
+  findRdvByPatient(id: number): Observable<Array<Rdv>> {
+    return this.http.get<Array<Rdv>>('http://localhost:8080/patient/mesrdvspat/' + id);
+  }
 
   create(patient: Patient) {
     return this.http.post<Patient>('http://localhost:8080/patient', patient);

@@ -16,7 +16,36 @@ export class AppComponent {
 
 
   constructor(public sessionService: SessionService, public router: Router, private utilisateurService: UtilisateurService) {
+    this.connexionEnTantQuePatient();
+    // this.connexionEnTantQueAdministrateur();
+    // this.connexionEnTantQuePraticien();
+  }
 
+  connexionEnTantQuePatient() {
+    this.utilisateurService.findByIdentifiantAndMotDePasse('pat1id', 'pat1mdp').subscribe(resp => {
+        this.sessionService.setUtilisateur(resp);
+        this.router.navigateByUrl('/accueil');
+      },
+      error => console.log(error)
+    );
+  }
+
+  connexionEnTantQueAdministrateur() {
+    this.utilisateurService.findByIdentifiantAndMotDePasse('admin1', 'admin1mdp').subscribe(resp => {
+        this.sessionService.setUtilisateur(resp);
+        this.router.navigateByUrl('/accueil');
+      },
+      error => console.log(error)
+    );
+  }
+
+  connexionEnTantQuePraticien() {
+    this.utilisateurService.findByIdentifiantAndMotDePasse('p1id', 'p1mdp').subscribe(resp => {
+        this.sessionService.setUtilisateur(resp);
+        this.router.navigateByUrl('/accueil');
+      },
+      error => console.log(error)
+    );
   }
 
 

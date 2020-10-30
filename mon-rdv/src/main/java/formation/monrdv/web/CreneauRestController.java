@@ -19,6 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import formation.monrdv.model.Creneau;
+import formation.monrdv.model.Rdv;
 import formation.monrdv.model.Views;
 import formation.monrdv.repository.ICreneauRepository;
 

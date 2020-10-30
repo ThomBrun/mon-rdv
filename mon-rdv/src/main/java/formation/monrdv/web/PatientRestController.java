@@ -19,6 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import formation.monrdv.model.Patient;
+import formation.monrdv.model.Rdv;
 import formation.monrdv.model.Views;
 import formation.monrdv.repository.IPatientRepository;
 
@@ -47,6 +48,12 @@ public class PatientRestController {
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
+	}
+	
+	@GetMapping("/mesrdvspat/{id}")
+	@JsonView(Views.ViewPatient.class)
+	public List<Rdv> findRdvByPatient(@PathVariable Long id) {
+		return patientRepo.findRdvByPatient(id);
 	}
 	
 	@PostMapping("")

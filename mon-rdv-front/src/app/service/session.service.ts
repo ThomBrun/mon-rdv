@@ -48,4 +48,8 @@ export class SessionService {
     return JSON.parse(sessionStorage.getItem('utilisateur')).type;
   }
 
+  getUserId(): number{
+    return JSON.parse(sessionStorage.getItem('utilisateur')).id;
+  }
+
 }

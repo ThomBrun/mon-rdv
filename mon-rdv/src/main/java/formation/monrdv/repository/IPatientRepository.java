@@ -11,7 +11,7 @@ import formation.monrdv.model.Rdv;
 
 public interface IPatientRepository  extends JpaRepository<Patient, Long>{
 	
-	/*@Query("select r from Rdv r join where r.patient_id = :id")
-	List<Rdv> findRdvByPatient(@Param("id") Long id);*/
+	@Query("select r from Patient p join p.rdvs r where r.patient.id = :id")
+	List<Rdv> findRdvByPatient(@Param("id") Long id);
 
 }

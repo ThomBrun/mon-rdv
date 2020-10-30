@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import formation.monrdv.model.Creneau;
 import formation.monrdv.model.Lieu;
 import formation.monrdv.model.Rdv;
 
@@ -22,7 +23,14 @@ public interface IRdvRepository  extends JpaRepository<Rdv, Long>{
 	/*@Query(value = "SELECT r FROM r.Rdv JOIN motif ON r.motif_id = motif.id JOIN praticien ON motif.praticien_id = praticien.id JOIN creneau ON creneau.rdv_id = r.id ORDER BY arrival_time desc", nativeQuery = true)
 	List<Rdv> findRdvByPraticien(@Param("id") Long id);*/
 	
-	/*@Query("select r from Rdv r where r.patient_id = :id")
+
+	
+	/* Marche aussi dans IPatient
+	@Query("select r from Patient p join p.rdvs r where r.patient.id = :id")   
 	List<Rdv> findRdvByPatient(@Param("id") Long id);*/
+
+	
+	@Query("select c from Rdv r join r.creneaux c where c.rdv.id = :id")
+	List<Creneau> findCreneauByRdv(@Param("id") Long id);
 
 }

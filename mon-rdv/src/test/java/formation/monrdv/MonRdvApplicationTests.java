@@ -178,44 +178,70 @@ class MonRdvApplicationTests {
 			motifpat2.getLieux().add(lieu2);
 			motifRepo.save(motifpat2);
 			
-			
-			/*List<Rdv> testrdv = rdvRepo.findRdvByPraticien(praticien1.getId());
-			
-			for (Rdv trdv : testrdv) {
-				System.out.println(trdv.getId());
-			}*/
-			
-			/*List<Specialite> testspecia = specialiteRepo.findSpecialiteByPraticien(praticien1.getId());
+			//OK
+			List<Specialite> testspecia = praticienRepo.findSpecialiteByPraticien(praticien1.getId());
 			for (Specialite spe : testspecia) {
 				System.out.print("nom specialite : ");
 				System.out.println(spe.getNom());
-			}*/
+			}
 			
-			/*List<Specialite> testspecia = praticienRepo.findSpecialiteByPraticien(praticien1.getId());
-			for (Specialite spe : testspecia) {
-				System.out.print("nom specialite : ");
-				System.out.println(spe.getNom());
-			}*/
 			
-			/*List<Specialite> testspecia2 = specialiteRepo.findSpecialiteBynom("Orthodontie");
-			for (Specialite spe : testspecia2) {
-				System.out.print("id specialite : ");
-				System.out.println(spe.getId());
-			}*/
-			
-			/*List<Lieu> testlieu = praticienRepo.findLieuByPraticien(praticien1.getId());
+			//OK
+			List<Lieu> testlieu = praticienRepo.findLieuByPraticien(praticien1.getId());
 			for (Lieu li : testlieu) {
-				System.out.print("nom lieu : ");
+				System.out.print("nom lieu par praticien: ");
 				System.out.println(li.getNom());
-			}*/
+			}
 			
 			
-			///////
-			/*List<Rdv> testrdv = patientRepo.findRdvByPatient(patient1.getId());
+			//OK
+			List<Lieu> testlieu2 = motifRepo.findLieuByMotif(motifpat1.getId());
+			for (Lieu li : testlieu2) {
+				System.out.print("nom lieu par motif: ");
+				System.out.println(li.getNom());
+			}
+			
+			//OK
+			List<Rdv> testrdv = patientRepo.findRdvByPatient(patient1.getId());
 			for (Rdv r : testrdv) {
-				System.out.print("id rdv : ");
+				System.out.print("id rdv par patient: ");
 				System.out.println(r.getId());
-			}*/
+			}
+			
+			//OK
+			List<Rdv> testrdv2 = motifRepo.findRdvByMotif(motifpat1.getId());
+			for (Rdv r : testrdv2) {
+				System.out.print("id rdv par motif: ");
+				System.out.println(r.getId());
+			}
+			
+			//OK
+			List<Motif> testmotif = praticienRepo.findMotifByPraticien(praticien1.getId());
+			for (Motif m : testmotif) {
+				System.out.print("nom motif : ");
+				System.out.println(m.getNom());
+			}
+			
+			//OK
+			List<Creneau> testcreneau = rdvRepo.findCreneauByRdv(rdv1.getId());
+			for (Creneau c : testcreneau) {
+				System.out.print("date creneau par rdv: ");
+				System.out.println(c.getDate());
+			}
+			
+			//OK
+			List<Creneau> testcreneau2 = lieuRepo.findCreneauByLieu(lieu1.getId());
+			for (Creneau c : testcreneau2) {
+				System.out.print("date creneau par lieu: ");
+				System.out.println(c.getDate());
+			}
+			
+			//OK
+			List<Creneau> testcreneau3 = praticienRepo.findCreneauByPraticien(praticien1.getId());
+			for (Creneau c : testcreneau3) {
+				System.out.print("date creneau par praticien: ");
+				System.out.println(c.getDate());
+			}
 	
 	}
 }

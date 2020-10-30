@@ -24,6 +24,8 @@ const routes: Routes = [
   {path: 'prendreRdv', component: PrendreRdvComponent},
   {path: 'rdvPatient', component: RdvPatientComponent},
   {path: 'rdvPraticien', component: RdvPraticienComponent},
+  {path: 'mesrdvspat', component: RdvPatientComponent},
+
 ];
 
 @NgModule({

@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import formation.monrdv.model.Creneau;
 import formation.monrdv.model.Rdv;
 import formation.monrdv.model.Views;
 import formation.monrdv.repository.IRdvRepository;
@@ -47,6 +48,12 @@ public class RdvRestController {
 		} else {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
 		}
+	}
+	
+	@GetMapping("/creneaux/{id}")
+	@JsonView(Views.ViewRdv.class)
+	public List<Creneau> findCreneauByRdv(@PathVariable Long id) {
+		return rdvRepo.findCreneauByRdv(id);
 	}
 	
 	@PostMapping("")

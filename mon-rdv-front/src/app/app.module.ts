@@ -16,6 +16,12 @@ import { InfoPatientComponent } from './components/info-patient/info-patient.com
 import { InfoPraticienComponent } from './components/info-praticien/info-praticien.component';
 import { DisponibilitesComponent } from './components/disponibilites/disponibilites.component';
 
+import { CommonModule } from '@angular/common';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +41,15 @@ import { DisponibilitesComponent } from './components/disponibilites/disponibili
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
