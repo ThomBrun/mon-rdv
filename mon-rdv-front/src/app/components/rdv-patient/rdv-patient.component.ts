@@ -93,46 +93,7 @@ export class RdvPatientComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [/*
-    {
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },*/
-  ];
+  events: CalendarEvent[] = [];
 
   activeDayIsOpen = true;
 
@@ -232,11 +193,12 @@ export class RdvPatientComponent implements OnInit {
   addRdvs(){
     console.log('nombre de rdv');
     console.log(this.rdvs.length);
-    let DateDBTRdv: Date;
-    let DateFINRdv: Date;
+
     let lieu;
     for (const rd of this.rdvs) {
       let creneau1: Creneau;
+      let DateDBTRdv: Date;
+      let DateFINRdv: Date;
       this.rdvService.findCreneauByRdv(this.rdvService.getRdvId(rd)).subscribe(resp => {DateDBTRdv = resp[0].date ;
         DateFINRdv = resp[resp.length - 1].date ;
         creneau1 = resp[0];
@@ -246,15 +208,10 @@ export class RdvPatientComponent implements OnInit {
         for (const l of this.lieuService.findAll()){
           this.lieuService.findCreneauByLieu(l.id).subscribe(resp2 => {creneau_rdv = resp2;
               for (const c of creneau_rdv){
-                console.log(c.id);
-                console.log('///');
-                console.log(creneau1.id);
-
                 if (c.id === creneau1.id){
-                  console.log('rentre');
                   lieu = l.nom;
                   console.log(DateDBTRdv, DateFINRdv, lieu);
-                  this.addEvent2(lieu, DateDBTRdv, DateFINRdv);
+                  this.addEvent2(lieu + ', ' + l.numero + ' ' + l.rue + ' ' + l.ville + ' ' + l.codePostal, DateDBTRdv, DateFINRdv);
                 }
               };
 
@@ -263,22 +220,6 @@ export class RdvPatientComponent implements OnInit {
             error => console.log(error));
 
         }
-        this.events = [
-          ...this.events,
-          {
-            title: lieu,
-            start: DateDBTRdv,
-            end: DateFINRdv,
-            actions: this.actions,
-            color: colors.red,
-            draggable: true,
-            resizable: {
-              beforeStart: true,
-              afterEnd: true,
-            },
-          },
-        ];
-
       }, error => console.log(error));
 
 

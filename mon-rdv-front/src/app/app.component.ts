@@ -16,7 +16,7 @@ export class AppComponent {
 
 
   constructor(public sessionService: SessionService, public router: Router, private utilisateurService: UtilisateurService) {
-    //this.connexionEnTantQuePatient();
+    // this.connexionEnTantQuePatient();
     // this.connexionEnTantQueAdministrateur();
     // this.connexionEnTantQuePraticien();
   }

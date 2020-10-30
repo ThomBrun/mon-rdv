@@ -70,11 +70,11 @@ class MonRdvApplicationTests {
 			Creneau creneau6 = new Creneau(sdf2.parse("20201028085000"));
 			creneauRepo.save(creneau6);
 			////////
-			Creneau creneau7 = new Creneau(sdf2.parse("20201028140000")); //14h le 28/10/2020, unite horaire = 10
+			Creneau creneau7 = new Creneau(sdf2.parse("20201030140000")); //14h le 30/10/2020, unite horaire = 10
 			creneauRepo.save(creneau7);
-			Creneau creneau8 = new Creneau(sdf2.parse("20201028141000"));
+			Creneau creneau8 = new Creneau(sdf2.parse("20201030141000"));
 			creneauRepo.save(creneau8);
-			Creneau creneau9 = new Creneau(sdf2.parse("20201028142000"));
+			Creneau creneau9 = new Creneau(sdf2.parse("20201030142000"));
 			creneauRepo.save(creneau9);
 			////////
 			Creneau creneau10 = new Creneau(sdf2.parse("20201028100000")); //10h le 29/10/2020, unite horaire = 15
@@ -128,12 +128,10 @@ class MonRdvApplicationTests {
 			rdv2.setPatient(patient2);
 			rdvRepo.save(rdv1);
 			rdvRepo.save(rdv2);
-			Motif motif = new Motif();
-			motifRepo.save(motif);
 			Administrateur administrateur = new Administrateur();			
 			adminRepo.save(administrateur);
-			Rdv rdv = new Rdv();
-			rdvRepo.save(rdv);
+			
+			
 			Motif motifpat1 = new Motif("consultation", 20);
 			Motif motifpat2 = new Motif("Carrie", 30);
 			motifRepo.save(motifpat1);
@@ -177,6 +175,42 @@ class MonRdvApplicationTests {
 			motifpat2.getLieux().add(lieu1);
 			motifpat2.getLieux().add(lieu2);
 			motifRepo.save(motifpat2);
+			
+			
+			
+			Motif motif3 = new Motif("BOBO", 30);
+			motifRepo.save(motif3);
+
+			Rdv rdv3 = new Rdv();
+			rdvRepo.save(rdv3);
+			
+			creneau7.setRdv(rdv3);
+			creneau8.setRdv(rdv3);
+			creneau9.setRdv(rdv3);
+			
+			creneau7.setLieu(lieu3);
+			creneau8.setLieu(lieu3);
+			creneau9.setLieu(lieu3);
+			
+			creneau7.setPraticien(praticien1);
+			creneau8.setPraticien(praticien1);
+			creneau9.setPraticien(praticien1);
+			
+			rdv3.setMotif(motif3);
+			rdv3.setPatient(patient1);
+			
+			motif3.setPraticien(praticien1);
+			motif3.getLieux().add(lieu3);
+
+			creneauRepo.save(creneau7);
+			creneauRepo.save(creneau8);
+			creneauRepo.save(creneau9);
+
+			motifRepo.save(motif3);
+			rdvRepo.save(rdv3);
+
+			
+			
 			
 			//OK
 			List<Specialite> testspecia = praticienRepo.findSpecialiteByPraticien(praticien1.getId());
