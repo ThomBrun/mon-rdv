@@ -1,9 +1,7 @@
 #imagefond {
-//  background-image: url(C:/java/workspace/mon-rdv/mon-rdv/src/main/resources/static/images/backgroundphoto.jpg);
   background-image: url(C:\java\workspace\mon-rdv\mon-rdv\src\main\resources\static\images\backgroundphoto.jpg);
   opacity: 0.15;
   height : 1000px;
-//  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -13,9 +11,6 @@
   opacity: 0.15;
   width: 100%;
   height: 100%;
-//  height : 900px;
-//  background-size: cover;
-
 }
 
 .entete {
@@ -23,13 +18,9 @@
   top: 0%;
   height: 150px;
   background-color: cadetblue;
-  padding-top: 45px;
-  padding-left: 100px;
+  padding-top: 20px;
+  padding-left: 50px;
   border-bottom: thick double white;
   color: white;
 
-
-
-  //left: 50%;
-  //transform: translate(-50%, -50%);
 }

@@ -1,6 +1,14 @@
-<div class="container">
-<table class="table">
-  <thead class="bg-white">
+<div class="container bg-white bordercolor px-5 py-5 mt-5">
+
+  <h1>Praticiens</h1>
+
+    <div>
+      <input class="form-control my-4" type="text" id="pratSearch"
+             placeholder="Rechercher" (keyup)="recherchePrat()">
+    </div>
+
+<table class="table" id="pratTable">
+  <thead>
   <tr>
     <th>Praticiens</th>
     <th>Spécialités</th>
@@ -8,11 +16,10 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let prat of listprat()">
+  <tr *ngFor="let prat of listprat()" [routerLink]="['/prendreRdv/' + prat.id]">
      <td>{{prat.nom}} {{prat.prenom}}</td>
      <td><div *ngFor="let col of prat.specialites"><div>{{col.nom}}</div></div></td>
      <td><div *ngFor="let col of prat.lieux"><div>{{col.nom}}, <strong>{{col.ville}}</strong></div></div></td>
-
   </tr>
   </tbody>
 </table>

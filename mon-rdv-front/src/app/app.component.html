@@ -1,68 +1,51 @@
-<!--<div class="container">-->
-<!--  <img src="backgroundphoto.jpg" style="width:100%;">-->
-<!--  <div class="centered">Centered</div>-->
-<!--</div>-->
-
-
-<!--<div class="container"> -->
-<!--  <img class="imagemodif" src="backgroundphoto.jpg">
-  <div class="centered">Centered</div> -->
-<!-- </div> -->
-
-<!--<div>-->
-<!--  <img class="imagemodif" src="backgroundphoto.jpg">-->
-<!--  <div class="container-fluid entete">-->
-<!--    <h1>Bienvenue sur mon-rdv</h1>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div id="imagefond">
 </div>
 
-<div class="container-fluid" style="position: absolute; top: 30%;">
+<div class="container-fluid" style="position: absolute; top: 25%;">
   <router-outlet></router-outlet>
 </div>
 
 
 <div class="container-fluid entete">
-  <nav class="navbar navbar-expand-md navbar-light bgNavBar fixed-top" style="height: 80px; margin-top:20px;">
+  <nav class="navbar navbar-expand-md navbar-light bgNavBar" style="height: 80px;">
     <div  class="collapse navbar-collapse">
       <li style="margin-left: -20px;">
         <a class="navbar-brand" [routerLink]="['/accueil']">
-          <img class="imgNavbar" src="../../../assets/accueil.png" style="margin-left:10px; margin-right:20px;" width="180px" height="90px">
+          <img class="imgNavbar" src="../../../assets/accueil.png" style="margin-left:10px; margin-right:50px;" width="130px" height="70px">
+          <h3 class="pt-4">Mon-Rdv</h3>
         </a>
       </li>
       <ul class="navbar-nav mr-auto container" style="font-size: 30px;">
-        <li class="nav-item active">
-          <a [routerLink]="['/consulte']" class=" textNavBar">Annuaire
+        <li>
+          <a [routerLink]="['/consulte']" class="btn text-white" style="font-size: 30px;">Liste des praticiens
             <span class="sr-only"></span> </a>
         </li>
         <li *ngIf="sessionService.getType()=='patient'" class="nav-item active">
-          <a [routerLink]="['/rdvPatient']" class="  textNavBar" style="font-size: 30px; margin-right:150px;">Mes rendez-vous
+          <a [routerLink]="['/rdvPatient']" class="btn text-white" style="font-size: 30px; margin-right:150px;">Mes rendez-vous
             <span class="sr-only"></span> </a>
         </li>
         <li *ngIf="sessionService.getType()=='praticien'" class="nav-item active">
-          <a [routerLink]="['/rdvPraticien']" class="  textNavBar" style="font-size: 30px; margin-right:150px;">Mes rendez-vous
+          <a [routerLink]="['/rdvPraticien']" class="btn text-white" style="font-size: 30px; margin-right:150px;">Mes rendez-vous
             <span class="sr-only"></span> </a>
         </li>
       </ul>
 
       <div class="form-inline my-2 my-lg-0" >
-        <button *ngIf="!sessionService.getIdentifiant(); else connecte" class="btn btn-outline-info my-2 my-sm-0" type="submit" style="font-size: 30px;font-weight: bold" [routerLink]="['/logIn']" >Se connecter</button>
-        <button *ngIf="!sessionService.getIdentifiant()" class="btn btn-outline-info my-2 my-sm-0" type="submit" style="font-size: 30px;font-weight: bold" [routerLink]="['/inscription']" >S'inscrire</button>
+        <button *ngIf="!sessionService.getIdentifiant(); else connecte" class="btn btn-outline-light my-4" type="submit" style="font-size: 20px; width: 150px" [routerLink]="['/logIn']" >Se connecter</button>
+        <button *ngIf="!sessionService.getIdentifiant()" class="btn btn-outline-light " type="submit" style="font-size: 20px; width: 150px" [routerLink]="['/inscription']" >S'inscrire</button>
         <ng-template #connecte>
           <button *ngIf="sessionService.getType()=='admin'" class="btn btn-outline-info my-2 my-sm-0"
-                  [routerLink]="['/compteAdministrateur']" style="font-size: 30px;font-weight: bold">Mon compte
+                  [routerLink]="['/compteAdministrateur']" style="font-size: 20px;font-weight: bold">Mon compte
           </button>
-          <button *ngIf="sessionService.getType()=='patient'" class="btn btn-outline-info my-2 my-sm-0"
-                  [routerLink]="['/infoPatient']" style="font-size: 30px;font-weight: bold">Mes informations
+          <button *ngIf="sessionService.getType()=='patient'" class="btn btn-outline-light my-4"
+                  [routerLink]="['/infoPatient']" style="font-size: 20px; width: 300px;">Mes informations
           </button>
-          <button *ngIf="sessionService.getType()=='praticien'" class="btn btn-outline-info my-2 my-sm-0"
-                  [routerLink]="['/infoPraticien']" style="font-size: 30px;font-weight: bold">Mes informations
+          <button *ngIf="sessionService.getType()=='praticien'" class="btn btn-outline-light my-4"
+                  [routerLink]="['/infoPraticien']" style="font-size: 20px; width: 300px;">Mes informations
           </button>
-          <button *ngIf="sessionService" class="btn btn-outline-info my-2 my-sm-0"
+          <button *ngIf="sessionService" class="btn btn-outline-light"
                   (click)="sessionService.offUtilisateur()"
-                  style="font-size: 20px;font-weight: bold; margin-left: 5px;">Se deconnecter
+                  style="font-size: 20px; width: 300px">Se deconnecter
           </button>
         </ng-template>
       </div>

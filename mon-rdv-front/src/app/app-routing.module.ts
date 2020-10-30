@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'infoPraticien', component: InfoPraticienComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'logIn', component: LogInComponent},
-  {path: 'prendreRdv', component: PrendreRdvComponent},
+  {path: 'prendreRdv/:id', component: PrendreRdvComponent},
   {path: 'rdvPatient', component: RdvPatientComponent},
   {path: 'rdvPraticien', component: RdvPraticienComponent},
   {path: 'mesrdvspat', component: RdvPatientComponent},

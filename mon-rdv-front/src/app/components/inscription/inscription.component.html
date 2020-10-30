@@ -1,1 +1,26 @@
-<p>inscription works!</p>
+<div class="container bg-white bordercolor px-5 py-5 mt-5 zoom">
+  <h3 class="mb-4">Formulaire d'inscription</h3>
+
+  <div class="form-group">
+    <label for="sel1">Je suis :</label>
+    <select class="form-control" id="sel1">
+      <option>Un praticien</option>
+      <option>Un patient</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="mail">Email :</label>
+    <input type="email" class="form-control" id="mail" name="mail" [(ngModel)]="utilisateurForm.email">
+  </div>
+  <div class="form-group">
+    <label for="identifiant">Identifiant : </label>
+    <input type="text" class="form-control" id="identifiant" name="identifiant" [(ngModel)]="utilisateurForm.identifiant">
+  </div>
+  <div class="form-group">
+    <label for="mdp">Mot de passe : </label>
+    <input type="text" class="form-control" id="mdp" name="mdp" [(ngModel)]="utilisateurForm.motDePasse">
+  </div>
+  <div class="mt-5">
+    <button type="button" class="btn btn-outline-dark stylebouton" [routerLink]="['/inscription']"><i class="fas fa-check"></i><p>Valider</p></button>
+  </div>
+</div>

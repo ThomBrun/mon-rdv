@@ -25,10 +25,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projet-BTP" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\java\workspace\mon-rdv\mon-rdv-front\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -43,7 +44,8 @@
       <workItem from="1603897084743" duration="619000" />
       <workItem from="1603900696929" duration="23234000" />
       <workItem from="1603960575559" duration="13358000" />
-      <workItem from="1603981165961" duration="1574000" />
+      <workItem from="1603981165961" duration="12537000" />
+      <workItem from="1604046664588" duration="14415000" />
     </task>
     <servers />
   </component>
@@ -51,9 +53,18 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1603968966511">
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1604064195545">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-72.1440.860@0.0.1366.728" timestamp="1604064195545" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1604046678605">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.-72.1440.860@0.0.1366.728" timestamp="1603968966511" />
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604046678605" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1603983743726">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.-72.1440.860@0.0.1366.728" timestamp="1603983743726" />
   </component>
 </project>
